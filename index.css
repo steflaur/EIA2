@@ -1,0 +1,63 @@
+<!-- /* 
+Userpage
+Name: Laura Vogt
+Matrikel: 256056
+Datum: 22.Mrz18
+
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert. 
+*/ -->
+
+@CHARSET "UTF-8";
+
+@import
+url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+body{
+  font-family: 'Ubuntu', sans-serif;
+	text-align: center;
+	background-color: #ffccba;
+}
+
+
+hr {
+	border: 1px #ffe8e0 dashed;
+}
+
+h1, h2, p {
+	font-family: Courier New;
+}
+
+p {
+	font-weight: bold;
+	margin: 0;
+}
+
+ul {
+	padding: 0;
+}
+
+li{
+	list-style-type: none;	
+}
+
+a:link {
+	color: #ffb296;
+	text-decoration: none;
+	}
+	
+a:visited {
+	color: #ff8559;
+	}
+	
+a:hover {
+	color: #ff8559;
+	text-decoration: underline;
+	cursor: grab;
+	}
+	
+a:active {
+	color: #ffffff;
+	cursor: grabbing;
+	}
