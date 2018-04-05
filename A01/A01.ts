@@ -21,8 +21,8 @@ namespace A01{
         let y: number = 0;
     
         for (let i: number = 0; i < n; i++) {
-            y += (i == 2) ? 20 : 50;    //
-            x = (x + 170) % 400;        //
+            y += (i == 2) ? 20 : 50;    
+            x = (x + 170) % 400;        
             
             switch (i) {
                 case 0:
