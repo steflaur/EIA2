@@ -11,7 +11,7 @@ nicht kopiert und auch nicht diktiert.
 
 
 
-    function Greeter(): void {
+    function greeter(): void {
         let name: string = prompt("Wer klopft?", "knockknock");
         let text: string = document.getElementById("txt").innerHTML
         
