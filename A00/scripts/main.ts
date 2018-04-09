@@ -11,16 +11,16 @@ nicht kopiert und auch nicht diktiert.
 
 
 
-    function greeter(): void {
+    function Greeter(): void {
         let name: string = prompt("Wer klopft?", "knockknock");
         let text: string = document.getElementById("txt").innerHTML
         
         if (name == null || name == "knockknock") {
-            text = "Schade!";
+            text == "Schade!";
         }//if close
         
             else {
-               text = "Hallo " + name + "! Wie geht es dir?";
+               text == "Hallo " + name + "! Wie geht es dir?";
             }//else close
         
         document.getElementById("txt").innerHTML= text;
