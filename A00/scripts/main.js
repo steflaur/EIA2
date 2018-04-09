@@ -19,4 +19,4 @@ function Greeter() {
     } //else close
     document.getElementById("txt").innerHTML = text;
 } //funktion close
-//# sourceMappingURL=A00.js.map
+//# sourceMappingURL=main.js.map

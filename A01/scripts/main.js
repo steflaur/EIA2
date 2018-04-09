@@ -10,7 +10,6 @@ nicht kopiert und auch nicht diktiert.
 */
 var A01;
 (function (A01) {
-    //Aufruf der function Boxes
     document.addEventListener("DOMContentLoaded", Boxes);
     function Boxes() {
         let n = 5;
@@ -18,8 +17,8 @@ var A01;
         let x = 0;
         let y = 0;
         for (let i = 0; i < n; i++) {
-            y += (i == 2) ? 20 : 50; //
-            x = (x + 170) % 400; //
+            y += (i == 2) ? 20 : 50;
+            x = (x + 170) % 400;
             switch (i) {
                 case 0:
                     c = "#ff0000";
@@ -53,4 +52,4 @@ var A01;
         s.top = _y + "px";
     } //function close
 })(A01 || (A01 = {})); //namespace close
-//# sourceMappingURL=A01.js.map
+//# sourceMappingURL=main.js.map
