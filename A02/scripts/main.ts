@@ -10,12 +10,6 @@ nicht kopiert und auch nicht diktiert.
 
 namespace memory {
 
-
-//global lets
-
-
-    
-
 function init(): void {
     
     let pairs : string = prompt("Wie viele Kartenpaare (min5|max10)")
@@ -54,9 +48,9 @@ function createGame(_pairs: number, _player: number) : void {
     head.appendChild(h);
     
     
-    createMainboard();
+    createMainboard(_pairs);
     
-    createAside();
+    createAside(_player);
     
     createFooter();
     
@@ -64,17 +58,29 @@ function createGame(_pairs: number, _player: number) : void {
 
  
  
-function createMainboard () : void {
+function createMainboard (_pairs : number) : void {
 
     //main
     let mainboard : HTMLElement = document.createElement("main")
     document.body.appendChild(mainboard);
     
+    let cardContent : string[] = ["a","b","c","d","e","f","g","h","i","j"];
+    let cardContentNeeded : string[] = [];
+    
+    for (let i : number = 0; i >= _pairs; i++) {
+       
+        
+        
+    }
+    
+    
+    
+    
 }//create Main close
 
     
     
-function createAside () : void {
+function createAside (_player : number) : void {
     
     //aside
     let info : HTMLElement = document.createElement("aside")
