@@ -10,7 +10,7 @@ nicht kopiert und auch nicht diktiert.
 
 namespace memory {
 
-    document.addEventListener("DOMContentLoaded", init);
+   document.addEventListener("DOMContentLoaded", init);
     
 function init(): void {
     
@@ -65,6 +65,7 @@ function createMainboard (_pairs : number) : void {
     //main
     let mainboard : HTMLElement = document.createElement("main")
     document.body.appendChild(mainboard);
+    console.log("erstelle main");
     
     let cardContent : string[] = ["a","b","c","d","e","f","g","h","i","j"];
     let cardContentNeeded : string[] = [];
@@ -74,11 +75,12 @@ function createMainboard (_pairs : number) : void {
         let transferElement : string = cardContent[i];  
         cardContentNeeded.push (transferElement);
         cardContentNeeded.push(transferElement);   
-    }
+    }//for close
     
+    console.log(cardContent);
     console.log(cardContentNeeded); 
     
-    for (let i : number = 0; i >= cardContentNeeded.length; i++) {
+    for (let i : number = 0; i >= _pairs*2; i++) {
         
         let min : number = 0;
         let max : number = cardContentNeeded.length;
@@ -88,12 +90,12 @@ function createMainboard (_pairs : number) : void {
         
         createCard(content);
         
-    }
+    }//for close
     
 }//create Main close
 
-function createCard (_content : number) : void {
-    
+function createCard (_content : string) : void {
+  console.log(_content);  
 }   
     
 function createAside (_player : number) : void {

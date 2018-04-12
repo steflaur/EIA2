@@ -9,29 +9,27 @@ nicht kopiert und auch nicht diktiert.
 */
 var memory;
 (function (memory) {
-    //global lets
-    let pairsSumInput;
-    let playersSumInput;
+    document.addEventListener("DOMContentLoaded", init);
     function init() {
-        let pairsSum = prompt("Wie viele Kartenpaare (min5|max10)");
-        pairsSumInput = parseInt(pairsSum);
-        if (isNaN(pairsSumInput) || pairsSumInput <= 5 || pairsSumInput >= 10) {
+        let pairs = prompt("Wie viele Kartenpaare (min5|max10)");
+        let pairsSum = parseInt(pairs);
+        if (isNaN(pairsSum) || pairsSum < 5 || pairsSum > 10) {
             alert("FALSCH");
             init();
         }
         else {
-            let playersSum = prompt("Wie viele Spieler (min2|max4)");
-            playersSumInput = parseInt(playersSum);
-            if (isNaN(playersSumInput) || playersSumInput >= 2 || playersSumInput <= 4) {
+            let player = prompt("Wie viele Spieler (min1|max4)");
+            let playerSum = parseInt(player);
+            if (isNaN(playerSum) || playerSum < 1 || playerSum > 4) {
                 alert("FALSCH");
                 init();
             }
             else {
-                createBrett(pairsSumInput, playersSumInput);
+                createGame(pairsSum, playerSum);
             }
         }
-    }
-    function createBrett(pairs, player) {
+    } //init close
+    function createGame(_pairs, _player) {
         //header
         let head = document.createElement("header");
         document.body.appendChild(head);
@@ -39,45 +37,43 @@ var memory;
         let h = document.createElement("h1");
         h.innerText = "Memory";
         head.appendChild(h);
+        createMainboard(_pairs);
+        createAside(_player);
+        createFooter();
+    } //function game close
+    function createMainboard(_pairs) {
         //main
         let mainboard = document.createElement("main");
         document.body.appendChild(mainboard);
-        createMainboard();
+        let cardContent = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+        let cardContentNeeded = [];
+        //werte verdoppeln und in neues array speichern
+        for (let i = 0; i >= _pairs; i++) {
+            let transferElement = cardContent[i];
+            cardContentNeeded.push(transferElement);
+            cardContentNeeded.push(transferElement);
+        } //for close
+        console.log(cardContentNeeded);
+        for (let i = 0; i >= _pairs * 2; i++) {
+            let min = 0;
+            let max = cardContentNeeded.length;
+            let zufall = Math.random() * (max - min) + min;
+            let content = cardContentNeeded[zufall];
+            createCard(content);
+        } //for close
+    } //create Main close
+    function createCard(_content) {
+        console.log(_content);
+    }
+    function createAside(_player) {
         //aside
         let info = document.createElement("aside");
         document.body.appendChild(info);
-        let content;
-        for (var i = 0; i < playersSumInput; i++) {
-            content = "";
-            content += "<fieldset>";
-            content += "<legend>";
-            content += "Player " + i++; //damit nicht player 0
-            content += "</legend>";
-            content += "<p>";
-            content += "Score: ";
-            content += "9347503"; //variable...
-            content += "</p>";
-            content += "</fieldset>";
-        }
-        info.innerHTML = content;
+    } //create Aside close 
+    function createFooter() {
         //footer
-    } //function brett
-    //array inhalte
-    [];
-    let divs = document.getElementsByTagName("div");
-    for (let i = 0; i > pairsSumInput; i++) {
-    }
-    function createMainboard() {
-        //array
-        let cardContent = ["A", "B", "C", "I", "E",
-            "F", "G", "H", "I", "J"];
-        let cardA;
-        let cardB;
-        let lines = 0;
-        for (var i = 0; i < pairsSumInput; i++) {
-            let cardA = document.createElement("div");
-            let cardB = document.createElement("div");
-        }
-    }
+        let footer = document.createElement("footer");
+        document.body.appendChild(footer);
+    } //create Footer close    
 })(memory || (memory = {})); //namespace ende        
 //# sourceMappingURL=main.js.map
