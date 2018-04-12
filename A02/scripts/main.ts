@@ -10,6 +10,8 @@ nicht kopiert und auch nicht diktiert.
 
 namespace memory {
 
+    document.addEventListener("DOMContentLoaded", init);
+    
 function init(): void {
     
     let pairs : string = prompt("Wie viele Kartenpaare (min5|max10)")
@@ -67,18 +69,32 @@ function createMainboard (_pairs : number) : void {
     let cardContent : string[] = ["a","b","c","d","e","f","g","h","i","j"];
     let cardContentNeeded : string[] = [];
     
+    //werte verdoppeln und in neues array speichern
     for (let i : number = 0; i >= _pairs; i++) {
-       
+        let transferElement : string = cardContent[i];  
+        cardContentNeeded.push (transferElement);
+        cardContentNeeded.push(transferElement);   
+    }
+    
+    console.log(cardContentNeeded); 
+    
+    for (let i : number = 0; i >= cardContentNeeded.length; i++) {
         
+        let min : number = 0;
+        let max : number = cardContentNeeded.length;
+        let zufall : number = Math.random() * (max - min) + min;
+        
+        let content : string = cardContentNeeded[zufall]
+        
+        createCard(content);
         
     }
     
-    
-    
-    
 }//create Main close
 
+function createCard (_content : number) : void {
     
+}   
     
 function createAside (_player : number) : void {
     
