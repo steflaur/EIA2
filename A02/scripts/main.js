@@ -104,7 +104,7 @@ var Memory;
         content.innerHTML = _content;
         card.appendChild(content);
         console.log("load content " + _content + " to mainboard");
-        //fill with content
+        // fill with .css command
     }
     //_____________________________________________________________________________________________________________________
     function createAside(_player) {
@@ -137,6 +137,7 @@ var Memory;
         footerContent.innerHTML = "";
         footer.appendChild(footerContent);
         console.log("load footerContent");
+        // fill with content
     }
 })(Memory || (Memory = {})); //namespace ende        
 //# sourceMappingURL=main.js.map

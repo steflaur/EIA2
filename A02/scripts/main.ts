@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", init);
             card.appendChild(content);
             console.log("load content " + _content + " to mainboard");
         
-        //fill with content
+        // fill with .css command
         
         }
    
@@ -181,6 +181,9 @@ document.addEventListener("DOMContentLoaded", init);
             footerContent.innerHTML = "";
             footer.appendChild(footerContent);
             console.log("load footerContent");
+        
+        // fill with content
+        
         }   
     
 //_____________________________________________________________________________________________________________________    
