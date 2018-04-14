@@ -8,7 +8,7 @@ Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
-function Greeter() {
+function greeter() {
     let name = prompt("Wer klopft?", "knockknock");
     let text = document.getElementById("txt").innerHTML;
     if (name == null || name == "knockknock") {

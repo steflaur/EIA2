@@ -1,1 +1,1 @@
-declare function Greeter(): void;
+declare function greeter(): void;

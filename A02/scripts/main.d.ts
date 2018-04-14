@@ -1,2 +1,2 @@
-declare namespace memory {
+declare namespace Memory {
 }
