@@ -2,7 +2,7 @@
 Aufgabe 2: Memory
 Name: Laura Vogt
 Matrikel: 254671
-Datum: 11Apr18
+Datum: 15.Apr18
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", init);
             card.appendChild(content);
             console.log("load content " + _content + " to mainboard");
         
-        // fill with .css command
+        // noch mit Anweisungen für .css zu füllen
         
         }
    
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", init);
             footer.appendChild(footerContent);
             console.log("load footerContent");
         
-        // fill with content
+        // #hier könnte ihre Werbung stehen 
         
         }   
     

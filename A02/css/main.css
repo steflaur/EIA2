@@ -2,54 +2,120 @@
 Aufgabe 2: Memory
 Name: Laura Vogt
 Matrikel: 254671
-Datum: 11Apr18
+Datum: 15.Apr18
+
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
 
+/* erstmal die ansicht aufm Desktop gemacht, zu mehr kam ich nichtmehr */
+
+@import url('https://fonts.googleapis.com/css?family=Gugi');
+
+* {margin: 0;
+  padding: 0;}
+
 html {
-}
+	width: 100%;
+	background-color: #121212; 
+	}
+	
+body {
+	width: 100%;
+	}
+
+header {
+	width: 100%;
+	height: 6em;
+	text-align: center;
+	background-color: skyblue;
+	}
+
+h1 {
+	padding: 0.25em;
+	font-family: 'Gugi', cursive;
+	font-size: 4em;
+	}
 
 
-header}
-}
+main {
+	width: 81%;
+	padding-left: 10%;
+	padding-top: 3em;
+	}
 
-
-main{
-}
-
+/*Zustand hidden*/
 div {
-}
+	background-color: #5581A1;
+	border: 5px solid #EDEDED;
+	margin: 1%;
+	width: 14%;
+	height: 10em;
+	float: left;
+	}
 
+div:nth-child(5n+1) {clear: left;}
 
-aside{
-}
+div p {
+	padding: 40% 47%;
+	color: #5581A1;
+	font-weight: bold;
+	}
 
-fieldset{
-}
+aside {
+	background-color: #121212;
+	font-family: 'Gugi', cursive;
+	text-align: center;
+	width: 15%;
+	height: 10em;
+	float: left;
+	}
+
+h2 {
+	color: #EDD17E;
+	font-size: 2em;
+	}
+
+fieldset {
+	background-color: #121212;
+	width: 90%;
+	height: 3em;
+	padding-bottom: 5%;
+	margin: 4%;
+	border-color: #EDD17E;
+	}
 
 legend {
-}
+	color: #EDD17E;
+	font-size: 1.25em;	
+	}
 
-p{
-}
-
-
-footer{	
-}
-
-
-
-
-
-.hidden{
+fieldset p {
+	color: #EDD17E;
 	}
 
 
-.taken {
-	}
+footer {	
+	
+}
 
-
+/* für .open */
 .open {
+	background-color: skyblue;
+	border-color: #EDEDED;
+	}
+
+.open p {
+	color: #121212;
+	}
+
+/* für .taken*/ 
+.taken {
+	background-color: black;
+	border-color: black;
+	}
+	
+.taken p {
+	color: black;
 	}
