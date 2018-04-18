@@ -14,31 +14,51 @@ namespace Memory {
 document.addEventListener("DOMContentLoaded", init);
     
     function init(): void {
+        
+        let pairs = promptPairs();
+            console.log(pairs + " pairs");
+        
+        let player = promptPlayer();
+            console.log(player + " player");
+        
+        createGame(pairs,player);
+        
+        }
+//_____________________________________________________________________________________________________________________    
+
+    function promptPairs() {
         let pairs: string = prompt("Wie viele Kartenpaare (min5|max10)")
         let pairsSum: number = parseInt(pairs)
         
+      // Number.isInteger()
+        
         if (isNaN(pairsSum) || pairsSum < 5 || pairsSum > 10) {
-            alert("FALSCH")
+            alert("Falsche Eingabe. Versuche es von vorne.")
+            console.log("invalide input");
             init();    
             }
         
             else {
-                console.log("correct input");
-                let player: string = prompt("Wie viele Spieler (min1|max4)")
-                let playerSum: number = parseInt(player)
-            
-                if (isNaN(playerSum) || playerSum < 1 || playerSum > 4) {
-                    alert("FALSCH")
-                    init();    
-                    }
-            
-                    else {
-                        console.log("correct input");
-                        createGame(pairsSum,playerSum);
-                        }
+                console.log("valide input");
+                return pairsSum;
                 }
         }
-
+    
+    function promptPlayer() {
+        let player: string = prompt("Wie viele Spieler (min1|max4)")
+        let playerSum: number = parseInt(player)
+            
+        if (isNaN(playerSum) || playerSum < 1 || playerSum > 4) {
+            alert("Falsche Eingabe. Versuche es von vorne.")
+            console.log("invalide input");
+            init();    
+            }
+            
+            else {
+                console.log("valide input");
+                return playerSum;
+                }
+        } 
 //_____________________________________________________________________________________________________________________    
     
     function createGame(_pairs: number, _player: number): void {
@@ -49,29 +69,60 @@ document.addEventListener("DOMContentLoaded", init);
             console.log("load head");
         
         //H1
-        let h: HTMLHeadingElement = document.createElement("h1");
-            h.innerText = "Memory";
-            head.appendChild(h);
+        let h1: HTMLHeadingElement = document.createElement("h1");
+            h1.innerText = "Memory";
+            head.appendChild(h1);
             console.log("create headline");
         
-        //call functions
-        createMainboard(_pairs);
+        //main
+        let main: HTMLElement = document.createElement("main");
+        document.body.appendChild(main);
+        console.log("load main");
         
-        createAside(_player);
+        //call functions
+        createPlayerInfo(_player, main);
+        
+        createCardArea(_pairs, main);
         
         createFooter();
         
         }
     
+ //_____________________________________________________________________________________________________________________   
+    
+ function createPlayerInfo (_player: number, _main: HTMLElement): void {
+        console.log("#call createInfo"); 
+        
+        let infoSec: HTMLElement = document.createElement("section");
+            infoSec.id = "infoSec";
+            _main.appendChild(infoSec);
+            console.log("load Player Section");
+        
+            for (let i: number = 0; i < _player; i++) {
+                let box: HTMLFieldSetElement = document.createElement("fieldset");
+                infoSec.appendChild(box);
+              
+                let boxLegend: HTMLLegendElement = document.createElement("legend");
+                boxLegend.innerHTML = "Spieler " + (i + 1) + ":";
+                box.appendChild(boxLegend); 
+                
+                let boxContent: HTMLParagraphElement = document.createElement("p");
+                boxContent.innerHTML = "Score: 0";
+                box.appendChild(boxContent);
+                console.log("create box for player " + (i + 1));
+                }
+        }
+       
  //_____________________________________________________________________________________________________________________    
      
-    function createMainboard (_pairs: number): void {
-        console.log("#call createMainboard");
+    function createCardArea (_pairs: number, _main: HTMLElement): void {
+        console.log("#call createCardArea");
         
-        //main
-        let mainboard: HTMLElement = document.createElement("main");
-        document.body.appendChild(mainboard);
-        console.log("load main");
+        let cardSec: HTMLElement = document.createElement("section");
+            cardSec.id = "cardSec";
+            _main.appendChild(cardSec);
+            console.log("load Card Section");
+        
         
         //kompletter Kontent
         let cardContent: string[] = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
@@ -95,7 +146,7 @@ document.addEventListener("DOMContentLoaded", init);
         //create cards
         for (let i: number = 0; i < cardContentNeeded.length; i++) {
             console.log(cardContentNeeded[i]);
-            createCard(cardContentNeeded[i], mainboard, i);
+            createCard(cardContentNeeded[i], cardSec, i);
             }
         }
     
@@ -106,7 +157,7 @@ document.addEventListener("DOMContentLoaded", init);
         
         for (let i: number = 0; i < _pairs; i++) {
             _cardContentNeeded.splice( 0, 0, _cardContent[i]);   
-            console.log("Kartenpaar " + (i + 1) + ": " + _cardContent[i] + " & " + _cardContent[i]);
+            console.log("Pair " + (i + 1) + ": " + _cardContent[i] + " & " + _cardContent[i]);
             }
         }
     
@@ -124,67 +175,54 @@ document.addEventListener("DOMContentLoaded", init);
                 }
         }
         
-    function createCard (_content: string, _place: HTMLElement, _index: number): void {
+    function createCard (_content: string, _main: HTMLElement, _index: number): void {
         console.log("#call createCard");
         
         let card: HTMLDivElement = document.createElement("div");
-            _place.appendChild(card);
-            console.log("load card " + (_index + 1) + " to mainboard");
+            _main.appendChild(card);
+            console.log("load card " + (_index + 1) + " to card area");
         
         let content: HTMLParagraphElement = document.createElement("p");
             content.innerHTML = _content;
             card.appendChild(content);
-            console.log("load content " + _content + " to mainboard");
+            console.log("load content " + _content + " to card area");
         
         // noch mit Anweisungen für .css zu füllen
         
         }
    
 //_____________________________________________________________________________________________________________________
-    
-    function createAside (_player: number): void {
-        console.log("#call createAside"); 
-        
-        let info: HTMLElement = document.createElement("aside");
-            document.body.appendChild(info);
-            console.log("load aside");
-        
-        let h2: HTMLHeadingElement = document.createElement("h2");
-            h2.innerHTML = "Spieler";
-            info.appendChild(h2);
-            console.log("load aside Heading: " + h2);
-        
-            for (let i: number = 0; i < _player; i++) {
-                let box: HTMLFieldSetElement = document.createElement("fieldset");
-                info.appendChild(box);
-              
-                let boxLegend: HTMLLegendElement = document.createElement("legend");
-                boxLegend.innerHTML = "Spieler " + (i + 1) + ":";
-                box.appendChild(boxLegend); 
-                
-                let boxContent: HTMLParagraphElement = document.createElement("p");
-                boxContent.innerHTML = "Score: 0";
-                box.appendChild(boxContent);
-                console.log("create box for player " + (i + 1));
-                }
-        }
-        
        
     function createFooter (): void {
         console.log("#call createFooter");
         
         let footer: HTMLElement = document.createElement("footer")
             document.body.appendChild(footer);
+        
+        let footerP: HTMLParagraphElement = document.createElement("p");
+            footerP.innerHTML = "© Laura Vogt";
+            footer.appendChild(footerP);
+        
+        let footerSpan: HTMLSpanElement = document.createElement("span");
+            footer.appendChild(footerSpan);
+         
+        let userLink: HTMLAnchorElement = document.createElement("a");
+            userLink.href = "https://steflaur.github.io";
+            userLink.target = "_blank";
+            userLink.innerText = "Userpage";
+            footerSpan.appendChild(userLink);
+
+        let projectLink: HTMLAnchorElement = document.createElement("a");
+            projectLink.href = "https://steflaur.github.io/EIA2";
+            projectLink.target = "_blank";
+            projectLink.innerText = "Projectpage";
+            footerSpan.appendChild(projectLink);
+        
             console.log("load footer");
         
-        let footerContent: HTMLParagraphElement = document.createElement("p");
-            footerContent.innerHTML = "";
-            footer.appendChild(footerContent);
-            console.log("load footerContent");
-        
-        // #hier könnte ihre Werbung stehen 
         
         }   
     
 //_____________________________________________________________________________________________________________________    
+    
     } //namespace ende        

@@ -2,7 +2,7 @@
 Aufgabe 2: Memory
 Name: Laura Vogt
 Matrikel: 254671
-Datum: 11Apr18
+Datum: 15.Apr18
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
@@ -12,24 +12,38 @@ var Memory;
     //_____________________________________________________________________________________________________________________
     document.addEventListener("DOMContentLoaded", init);
     function init() {
+        let pairs = promptPairs();
+        console.log(pairs + " pairs");
+        let player = promptPlayer();
+        console.log(player + " player");
+        createGame(pairs, player);
+    }
+    //_____________________________________________________________________________________________________________________    
+    function promptPairs() {
         let pairs = prompt("Wie viele Kartenpaare (min5|max10)");
         let pairsSum = parseInt(pairs);
+        // Number.isInteger()
         if (isNaN(pairsSum) || pairsSum < 5 || pairsSum > 10) {
-            alert("FALSCH");
+            alert("Falsche Eingabe. Versuche es von vorne.");
+            console.log("invalide input");
             init();
         }
         else {
-            console.log("correct input");
-            let player = prompt("Wie viele Spieler (min1|max4)");
-            let playerSum = parseInt(player);
-            if (isNaN(playerSum) || playerSum < 1 || playerSum > 4) {
-                alert("FALSCH");
-                init();
-            }
-            else {
-                console.log("correct input");
-                createGame(pairsSum, playerSum);
-            }
+            console.log("valide input");
+            return pairsSum;
+        }
+    }
+    function promptPlayer() {
+        let player = prompt("Wie viele Spieler (min1|max4)");
+        let playerSum = parseInt(player);
+        if (isNaN(playerSum) || playerSum < 1 || playerSum > 4) {
+            alert("Falsche Eingabe. Versuche es von vorne.");
+            console.log("invalide input");
+            init();
+        }
+        else {
+            console.log("valide input");
+            return playerSum;
         }
     }
     //_____________________________________________________________________________________________________________________    
@@ -39,22 +53,45 @@ var Memory;
         document.body.appendChild(head);
         console.log("load head");
         //H1
-        let h = document.createElement("h1");
-        h.innerText = "Memory";
-        head.appendChild(h);
+        let h1 = document.createElement("h1");
+        h1.innerText = "Memory";
+        head.appendChild(h1);
         console.log("create headline");
+        //main
+        let main = document.createElement("main");
+        document.body.appendChild(main);
+        console.log("load main");
         //call functions
-        createMainboard(_pairs);
-        createAside(_player);
+        createPlayerInfo(_player, main);
+        createCardArea(_pairs, main);
         createFooter();
     }
+    //_____________________________________________________________________________________________________________________   
+    function createPlayerInfo(_player, _main) {
+        console.log("#call createInfo");
+        let infoSec = document.createElement("section");
+        infoSec.id = "infoSec";
+        _main.appendChild(infoSec);
+        console.log("load Player Section");
+        for (let i = 0; i < _player; i++) {
+            let box = document.createElement("fieldset");
+            infoSec.appendChild(box);
+            let boxLegend = document.createElement("legend");
+            boxLegend.innerHTML = "Spieler " + (i + 1) + ":";
+            box.appendChild(boxLegend);
+            let boxContent = document.createElement("p");
+            boxContent.innerHTML = "Score: 0";
+            box.appendChild(boxContent);
+            console.log("create box for player " + (i + 1));
+        }
+    }
     //_____________________________________________________________________________________________________________________    
-    function createMainboard(_pairs) {
-        console.log("#call createMainboard");
-        //main
-        let mainboard = document.createElement("main");
-        document.body.appendChild(mainboard);
-        console.log("load main");
+    function createCardArea(_pairs, _main) {
+        console.log("#call createCardArea");
+        let cardSec = document.createElement("section");
+        cardSec.id = "cardSec";
+        _main.appendChild(cardSec);
+        console.log("load Card Section");
         //kompletter Kontent
         let cardContent = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
         console.log("total content " + cardContent);
@@ -73,7 +110,7 @@ var Memory;
         //create cards
         for (let i = 0; i < cardContentNeeded.length; i++) {
             console.log(cardContentNeeded[i]);
-            createCard(cardContentNeeded[i], mainboard, i);
+            createCard(cardContentNeeded[i], cardSec, i);
         }
     }
     //_____________________________________________________________________________________________________________________
@@ -81,7 +118,7 @@ var Memory;
         console.log("#call doubleArray");
         for (let i = 0; i < _pairs; i++) {
             _cardContentNeeded.splice(0, 0, _cardContent[i]);
-            console.log("Kartenpaar " + (i + 1) + ": " + _cardContent[i] + " & " + _cardContent[i]);
+            console.log("Pair " + (i + 1) + ": " + _cardContent[i] + " & " + _cardContent[i]);
         }
     }
     function shuffleArray(_array) {
@@ -95,49 +132,38 @@ var Memory;
             _array[j] = temp;
         }
     }
-    function createCard(_content, _place, _index) {
+    function createCard(_content, _main, _index) {
         console.log("#call createCard");
         let card = document.createElement("div");
-        _place.appendChild(card);
-        console.log("load card " + (_index + 1) + " to mainboard");
+        _main.appendChild(card);
+        console.log("load card " + (_index + 1) + " to card area");
         let content = document.createElement("p");
         content.innerHTML = _content;
         card.appendChild(content);
-        console.log("load content " + _content + " to mainboard");
-        // fill with .css command
+        console.log("load content " + _content + " to card area");
+        // noch mit Anweisungen für .css zu füllen
     }
     //_____________________________________________________________________________________________________________________
-    function createAside(_player) {
-        console.log("#call createAside");
-        let info = document.createElement("aside");
-        document.body.appendChild(info);
-        console.log("load aside");
-        let h2 = document.createElement("h2");
-        h2.innerHTML = "Spieler";
-        info.appendChild(h2);
-        console.log("load aside Heading: " + h2);
-        for (let i = 0; i < _player; i++) {
-            let box = document.createElement("fieldset");
-            info.appendChild(box);
-            let boxLegend = document.createElement("legend");
-            boxLegend.innerHTML = "Spieler " + (i + 1) + ":";
-            box.appendChild(boxLegend);
-            let boxContent = document.createElement("p");
-            boxContent.innerHTML = "Score: 0";
-            box.appendChild(boxContent);
-            console.log("create box for player " + (i + 1));
-        }
-    }
     function createFooter() {
         console.log("#call createFooter");
         let footer = document.createElement("footer");
         document.body.appendChild(footer);
+        let footerP = document.createElement("p");
+        footerP.innerHTML = "© Laura Vogt";
+        footer.appendChild(footerP);
+        let footerSpan = document.createElement("span");
+        footer.appendChild(footerSpan);
+        let userLink = document.createElement("a");
+        userLink.href = "https://steflaur.github.io";
+        userLink.target = "_blank";
+        userLink.innerText = "Userpage";
+        footerSpan.appendChild(userLink);
+        let projectLink = document.createElement("a");
+        projectLink.href = "https://steflaur.github.io/EIA2";
+        projectLink.target = "_blank";
+        projectLink.innerText = "Projectpage";
+        footerSpan.appendChild(projectLink);
         console.log("load footer");
-        let footerContent = document.createElement("p");
-        footerContent.innerHTML = "";
-        footer.appendChild(footerContent);
-        console.log("load footerContent");
-        // fill with content
     }
 })(Memory || (Memory = {})); //namespace ende        
 //# sourceMappingURL=main.js.map
