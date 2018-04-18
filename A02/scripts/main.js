@@ -93,7 +93,7 @@ var Memory;
         _main.appendChild(cardSec);
         console.log("load Card Section");
         //kompletter Kontent
-        let cardContent = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+        let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
         console.log("total content " + cardContent);
         //neues array aus content in passender anzahl
         let cardContentNeeded = cardContent.slice(0, _pairs);
@@ -132,6 +132,7 @@ var Memory;
             _array[j] = temp;
         }
     }
+    //_____________________________________________________________________________________________________________________    
     function createCard(_content, _main, _index) {
         console.log("#call createCard");
         let card = document.createElement("div");
@@ -141,7 +142,20 @@ var Memory;
         content.innerHTML = _content;
         card.appendChild(content);
         console.log("load content " + _content + " to card area");
-        // noch mit Anweisungen für .css zu füllen
+        //SwitchCase Block
+        switch (_content) {
+            case "A":
+            case "I":
+                card.className = "taken";
+                break;
+            case "C":
+            case "E":
+            case "G":
+                card.className = "open";
+                break;
+            default:
+                card.className = "hidden";
+        }
     }
     //_____________________________________________________________________________________________________________________
     function createFooter() {

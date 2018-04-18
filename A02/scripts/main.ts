@@ -125,9 +125,9 @@ document.addEventListener("DOMContentLoaded", init);
         
         
         //kompletter Kontent
-        let cardContent: string[] = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
-        console.log("total content " + cardContent);
+        let cardContent: string[] = ["A","B","C","D","E","F","G","H","I","J"];
         
+        console.log("total content " + cardContent);
         //neues array aus content in passender anzahl
         let cardContentNeeded: string [] = cardContent.slice( 0, _pairs); 
         console.log("needed content " + cardContentNeeded); 
@@ -149,6 +149,8 @@ document.addEventListener("DOMContentLoaded", init);
             createCard(cardContentNeeded[i], cardSec, i);
             }
         }
+    
+
     
 //_____________________________________________________________________________________________________________________
     
@@ -174,7 +176,9 @@ document.addEventListener("DOMContentLoaded", init);
                 _array[j] = temp
                 }
         }
-        
+
+//_____________________________________________________________________________________________________________________    
+    
     function createCard (_content: string, _main: HTMLElement, _index: number): void {
         console.log("#call createCard");
         
@@ -187,7 +191,20 @@ document.addEventListener("DOMContentLoaded", init);
             card.appendChild(content);
             console.log("load content " + _content + " to card area");
         
-        // noch mit Anweisungen für .css zu füllen
+            //SwitchCase Block
+            switch(_content) {
+                case "A":   
+                case "I": 
+                        card.className = "taken";
+                        break;
+                case "C":
+                case "E": 
+                case "G": 
+                        card.className = "open";
+                        break;
+                default: 
+                        card.className = "hidden";
+            }
         
         }
    

@@ -15,174 +15,124 @@ nicht kopiert und auch nicht diktiert.
 /* Mobile First; Ansicht: 0 - 570px / 0 - 35,625em */
 
 * { margin: 0;
-  	padding: 0;
-  	}
+  	padding: 0; }
 
-html {
-	width: 100%;
-	background-color: #121212; 
-	}
+	html {
+		width: 100%;
+		background-color: #121212; }
 	
-body {
-	width: 100%;
-	}
+	body { width: 100%; }
 
 /** header **/
 
-header {
-	width: 100%;
-	height: 3em;
-	text-align: center;
-	background-color: #;
-	}
+	header { width: 100%;
+			height: 3em;
+			text-align: center; }
 
-h1 {
-	padding: 0.25em;
-	font-family: 'Gugi', cursive;
-	font-size: 2em;
-	color: #ededed;
-	}
+	h1 { padding: 0.25em;
+		font-family: 'Gugi', cursive;
+		font-size: 2em;
+		color: #EDEDED; }
 
-p {
-	font-family: 'Gugi', cursive;
-}
+	p { font-family: 'Gugi', cursive; }
 
 
 /** Spielerinfo **/
 	
-#infoSec {
-	font-size: 0.75em;
-	}
+	#infoSec { font-size: 0.75em; }
 
-#infoSec h2 {
-	color: #EDD17E;
-	}
+	#infoSec h2 { color: #EDD17E; }
 
-#infoSec fieldset {
-	width: 42%;
-	display: inline;
-	background-color: #121212;
-	height: 4em;
-	padding: 0.5% 0;
-	margin: 0 3%;
-	border: 2px solid #e8bd40;
-	border-radius: 8px;
-	float: left;
-	}
+	#infoSec fieldset { width: 42%;
+						display: inline;
+						background-color: #121212;
+						height: 4em;
+						padding: 0.5% 0;
+						margin: 0 3%;
+						border: 2px solid #E8BD40;
+						border-radius: 8px;
+						float: left; }
 
-#infoSec legend {
-	font-family: 'Gugi', cursive;
-	padding-left: 3%;
-	color: #ededed;
-	font-size: 1.25em;
-	}
+	#infoSec legend { font-family: 'Gugi', cursive;
+					padding-left: 3%;
+					color: #EDEDED;
+					font-size: 1.25em; }
 
-#infoSec p {
-	font-size: 1.25em;
-	color: #ededed;
-	padding-left: 3%;
-	}
+	#infoSec p { font-size: 1.25em;
+					color: #EDEDED;
+					padding-left: 3%; }
 
 
 /** cardSec **/
-#cardSec {clear: both;}
+	#cardSec { clear: both; }
 
-#cardSec {
-	padding-top: 5%;
-	margin: 0 8%;
-	width: 84%;
-	}
+	#cardSec { padding-top: 2%;
+				margin: 0 8%;
+				width: 84%; }
+	
+/** alle **/
+	.hidden, .open, .taken { background-color: #8AAAC1;
+								border: 5px solid #5581A1;
+								border-radius: 5px;
+								margin: 1%;
+								width: 13.7%;
+								height: 4em;
+								float: left; }	
 
-#cardSec div {
-	background-color: #5581A1;
-	border: 5px solid #EDEDED;
-	border-radius: 5px;
-	margin: 1%;
-	width: 13.7%;
-	height: 4em;
-	float: left;
-	}
-
+	.open {	background-color: #F5E0A3;
+				border-color: #E8BD40; }
+	
+	.taken { background-color: black;
+				border-color: black; }		
 /*div:nth-child(5n+1) {clear: left;}*/
 
-#cardSec div p {
-	padding: 40% 47%;
-	color: #5581A1;
-	font-weight: bold;
-	}
+	.hidden p, .taken p { visibility: hidden; }
 
+	.open p { visibility: visible;
+			padding: 50% 35%;
+			color: #8AAAC1;
+			font-weight: bold; }
 
 /** footer **/
 
-footer {
-	font-size: 0.75em;
-	clear: both;
-   	bottom: 0;
-   	width: 100%;
-   	height: 50px;
-	padding-top: 8%;
-   	background: #121212;
-	text-align: center;
-	}	
+	footer { font-size: 0.75em;
+				clear: both;
+			   	bottom: 0;
+			   	width: 100%;
+			   	height: 50px;
+				padding-top: 8%;
+			   	background: #121212;
+				text-align: center; }	
 
-footer p {
-	border-top: 2px solid #e8bd40;
-	padding-top: 1%;
-	color: #EDD17E;	
-	}
+	footer p { border-top: 2px solid #e8bd40;
+				padding-top: 1%;
+				color: #EDD17E; }	
 
-footer span a:link {
-	padding: 0 1%;
-	font-family: 'Gugi', cursive;
-	color: #EDD17E;
-	text-decoration: none;
-	}
+	footer span a:link { padding: 0 1%;
+						font-family: 'Gugi', cursive;
+						color: #EDD17E;
+						text-decoration: none; }
 	
-footer span a:visited {
-	font-family: 'Gugi', cursive;
-	color: #EDD17E;
-}
+	footer span a:visited { font-family: 'Gugi', cursive; 
+							color: #EDD17E; }
 
-footer span a:hover {
-	font-family: 'Gugi', cursive;
-	color: #EDD17E;
-	text-shadow: -2px 2px 3px #edd17e;
-	cursor: grab;
-}
+	footer span a:hover { font-family: 'Gugi', cursive;
+							color: #EDD17E;
+							text-shadow: -2px 2px 3px #EDD17E;
+							cursor: grab; }
 
-footer span a:active {
-	font-family: 'Gugi', cursive;
-	color: #EDD17E;
-	cursor: grabbing;
-}
+	footer span a:active { font-family: 'Gugi', cursive;
+							color: #EDD17E;
+							cursor: grabbing; }
 
-/* für .open */
-.open {
-	background-color: skyblue;
-	border-color: #EDEDED;
-	}
 
-.open p {
-	color: #121212;
-	}
-
-/* für .taken*/ 
-.taken {
-	background-color: black;
-	border-color: black;
-	}
-	
-.taken p {
-	color: black;
-	}
 	
 	
 /* Tablet "Portrait"; Ansicht: 570px - 768px / 35,625em - 48em */
 
 @media screen and (min-width: 35.625em)	{
 					
-				#cardSec div {height: 6em;}			
-
+	.hidden, .open, .taken { height: 6em; }		
 
 	}
 
@@ -192,10 +142,9 @@ footer span a:active {
 
 @media screen and (min-width: 48em)	{
 		
-		#cardSec div {height: 9em;}
-		
-		#cardSec div p {padding: 15% 15%;}
-	
+	.hidden, .open, .taken { height: 9em; }
+	.hidden p, .open p, .taken p { padding: 15% 15%; }
+    .open p { padding: 60% 40%; }
 
 	}
 
@@ -205,26 +154,19 @@ footer span a:active {
 
 @media screen and (min-width: 64em)	{
 		
-		h1 {
-		font-size: 4em;
-		}
+	h1 { font-size: 4em; }
 		
-		#infoSec {
-		padding-top: 5em;
-		font-size: 1em;
-		}
+	#infoSec { padding-top: 5em;
+				font-size: 1em; }
 	
-		#infoSec fieldset {
-		width: 18%;
-		}
+	#infoSec fieldset { width: 18%; }
 		
-		#cardSec div {
-		width: 17.1%;
-		}
+	.hidden, .open, .taken { width: 16.8%;
+							height: 10em; }
 		
-		footer {
-		font-size: 1em;}
-		
+	 .open p { padding: 45% 45%; }
 	
-
+	footer { font-size: 1em;
+			padding-top: 5%; }
+	
 	}
