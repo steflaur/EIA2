@@ -22,7 +22,6 @@ var Memory;
     function promptPairs() {
         let pairs = prompt("Wie viele Kartenpaare (min5|max10)");
         let pairsSum = parseInt(pairs);
-        // Number.isInteger()
         if (isNaN(pairsSum) || pairsSum < 5 || pairsSum > 10) {
             alert("Falsche Eingabe. Versuche es von vorne.");
             console.log("invalide input");
@@ -46,7 +45,7 @@ var Memory;
             return playerSum;
         }
     }
-    //_____________________________________________________________________________________________________________________    
+    //_____________________________________________________________________________________________________________________     
     function createGame(_pairs, _player) {
         //header
         let head = document.createElement("header");
@@ -66,7 +65,7 @@ var Memory;
         createCardArea(_pairs, main);
         createFooter();
     }
-    //_____________________________________________________________________________________________________________________   
+    //_____________________________________________________________________________________________________________________    
     function createPlayerInfo(_player, _main) {
         console.log("#call createInfo");
         let infoSec = document.createElement("section");
@@ -85,7 +84,7 @@ var Memory;
             console.log("create box for player " + (i + 1));
         }
     }
-    //_____________________________________________________________________________________________________________________    
+    //_____________________________________________________________________________________________________________________     
     function createCardArea(_pairs, _main) {
         console.log("#call createCardArea");
         let cardSec = document.createElement("section");
@@ -113,7 +112,7 @@ var Memory;
             createCard(cardContentNeeded[i], cardSec, i);
         }
     }
-    //_____________________________________________________________________________________________________________________
+    //__________________________________________________________________________________________________________________    
     function doubleArray(_cardContent, _cardContentNeeded, _pairs) {
         console.log("#call doubleArray");
         for (let i = 0; i < _pairs; i++) {
@@ -132,7 +131,7 @@ var Memory;
             _array[j] = temp;
         }
     }
-    //_____________________________________________________________________________________________________________________    
+    //_____________________________________________________________________________________________________________________     
     function createCard(_content, _main, _index) {
         console.log("#call createCard");
         let card = document.createElement("div");
@@ -157,7 +156,7 @@ var Memory;
                 card.className = "hidden";
         }
     }
-    //_____________________________________________________________________________________________________________________
+    //__________________________________________________________________________________________________________________    
     function createFooter() {
         console.log("#call createFooter");
         let footer = document.createElement("footer");
