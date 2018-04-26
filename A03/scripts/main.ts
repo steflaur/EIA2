@@ -135,7 +135,6 @@ namespace Memory {
     }
 //__________________________________________________________________________________________________________________    
     function shuffleArray(_array: string[]): void {
-        console.log("#call shuffleArray");
 
         let j: number = 0
         let temp: any = null

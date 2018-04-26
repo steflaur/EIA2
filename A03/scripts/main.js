@@ -111,7 +111,6 @@ var Memory;
     }
     //__________________________________________________________________________________________________________________    
     function shuffleArray(_array) {
-        console.log("#call shuffleArray");
         let j = 0;
         let temp = null;
         for (let i = _array.length - 1; i > 0; i -= 1) {
