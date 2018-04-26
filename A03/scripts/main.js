@@ -9,48 +9,22 @@ nicht kopiert und auch nicht diktiert.
 */
 var Memory;
 (function (Memory) {
-    let pairs;
-    let pairsInput;
-    let pairsSum;
-    let player;
-    let playerInput;
-    let playerSum;
-    let head;
-    let h1;
-    let main;
-    let infoSec;
-    let box;
-    let boxLegend;
-    let boxContent;
-    let score = 0;
-    let playerArray = [];
-    let cardSec;
-    let cardContent;
-    let cardContentNeeded;
-    let cardDiv;
-    let content;
-    let footer;
-    let footerP;
-    let footerSpan;
-    let userLink;
-    let projectLink;
-    //_____________________________________________________________________________________________________________________
     document.addEventListener("DOMContentLoaded", init);
     function init() {
-        pairs = promptPairs();
+        let pairs = promptPairs();
         console.log(pairs + " pairs");
-        player = promptPlayer();
+        let player = promptPlayer();
         console.log(player + " player");
         createGame(pairs, player);
     }
     //_____________________________________________________________________________________________________________________    
     function promptPairs() {
-        pairsInput = prompt("Wie viele Kartenpaare (min5|max10)");
-        pairsSum = parseInt(pairsInput);
+        let pairs = prompt("Wie viele Kartenpaare (min5|max10)");
+        let pairsSum = parseInt(pairs);
         if (isNaN(pairsSum) || pairsSum < 5 || pairsSum > 10) {
             alert("Falsche Eingabe. Versuche es von vorne.");
             console.log("invalide input");
-            init();
+            location.reload();
         }
         else {
             console.log("valide input");
@@ -58,12 +32,12 @@ var Memory;
         }
     }
     function promptPlayer() {
-        playerInput = prompt("Wie viele Spieler (min1|max4)");
-        playerSum = parseInt(playerInput);
+        let player = prompt("Wie viele Spieler (min1|max4)");
+        let playerSum = parseInt(player);
         if (isNaN(playerSum) || playerSum < 1 || playerSum > 4) {
             alert("Falsche Eingabe. Versuche es von vorne.");
             console.log("invalide input");
-            init();
+            location.reload();
         }
         else {
             console.log("valide input");
@@ -73,64 +47,59 @@ var Memory;
     //_____________________________________________________________________________________________________________________     
     function createGame(_pairs, _player) {
         //header
-        head = document.createElement("header");
+        let head = document.createElement("header");
         document.body.appendChild(head);
         console.log("load head");
         //H1
-        h1 = document.createElement("h1");
+        let h1 = document.createElement("h1");
         h1.innerText = "Memory";
         head.appendChild(h1);
         console.log("create headline");
         //main
-        main = document.createElement("main");
+        let main = document.createElement("main");
         document.body.appendChild(main);
         console.log("load main");
         //call functions
-        createPlayerInfo(player, main);
-        createCardArea(pairs, main);
+        createPlayerInfo(_player, main);
+        createCardArea(_pairs, main);
         createFooter();
     }
     //_____________________________________________________________________________________________________________________    
     function createPlayerInfo(_player, _main) {
         console.log("#call createInfo");
-        infoSec = document.createElement("section");
+        let infoSec = document.createElement("section");
         infoSec.id = "infoSec";
         _main.appendChild(infoSec);
         console.log("load Player Section");
-        playerArray = ["1", "2", "3", "4"];
-        playerArray = playerArray.slice(0, player);
-        console.log(playerArray);
-        for (let i = 0; i < playerArray.length; i++) {
-            box = document.createElement("fieldset");
+        for (let i = 0; i < _player; i++) {
+            let box = document.createElement("fieldset");
             infoSec.appendChild(box);
-            boxLegend = document.createElement("legend");
-            boxLegend.innerHTML = "Spieler " + playerArray[i] + ":";
+            let boxLegend = document.createElement("legend");
+            boxLegend.innerHTML = "Spieler " + (_player + i) + ":";
             box.appendChild(boxLegend);
-            boxContent = document.createElement("p");
-            boxContent.innerHTML = "Score: " + score;
+            let boxContent = document.createElement("p");
+            boxContent.innerHTML = "Score: ";
             box.appendChild(boxContent);
-            console.log("create box for player " + playerArray[i]);
+            console.log("create box for player " + (_player + i));
         }
     }
     //_____________________________________________________________________________________________________________________     
     function createCardArea(_pairs, _main) {
         console.log("#call createCardArea");
-        cardSec = document.createElement("section");
+        let cardSec = document.createElement("section");
         cardSec.id = "cardSec";
         _main.appendChild(cardSec);
         console.log("load Card Section");
         //kompletter Kontent
-        cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+        let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
         console.log("total content " + cardContent);
         //neues array aus content in passender anzahl
-        cardContentNeeded = cardContent.slice(0, pairs);
+        let cardContentNeeded = cardContent.slice(0, _pairs);
         console.log("needed content " + cardContentNeeded);
         //double
         cardContentNeeded = cardContentNeeded.concat(cardContentNeeded);
         console.log("doubled | needed content " + cardContentNeeded);
         //shuffle
-        /*andere art zu shuffeln...aber die schlechtere
-        cardContentNeeded.sort(function(){return 0.5 - Math.random()});*/
         shuffleArray(cardContentNeeded);
         console.log("doubled | needed | randomized content " + cardContentNeeded);
         console.log("Items in cardContentNeeded : " + cardContentNeeded.length);
@@ -155,13 +124,13 @@ var Memory;
     //_____________________________________________________________________________________________________________________     
     function createCard(_content, _cardSec, _index) {
         console.log("#call createCard");
-        cardDiv = document.createElement("div");
-        cardDiv.title = _content;
+        let cardDiv = document.createElement("div");
+        cardDiv.setAttribute("content", _content);
         cardDiv.className = "hidden";
         cardDiv.addEventListener("click", cardInteraction);
         _cardSec.appendChild(cardDiv);
         console.log("load card " + (_index + 1) + " to card area");
-        content = document.createElement("p");
+        let content = document.createElement("p");
         content.innerHTML = _content;
         cardDiv.appendChild(content);
         console.log("load content " + _content + " to card area");
@@ -170,6 +139,7 @@ var Memory;
     function cardInteraction(_event) {
         console.log("#call card event");
         //cardDiv wird im event zu clCard
+        let cardSec = document.getElementById("cardSec");
         let cardCl = _event.target;
         let cardsOpen = cardSec.getElementsByClassName("open").length;
         if (cardCl.className == "hidden") {
@@ -181,17 +151,17 @@ var Memory;
                 case 1:
                     cardCl.className = "open";
                     console.log((cardsOpen + 1) + "st clicked -card " + cardCl.title + "-");
-                    setTimeout(checkContent, 2000);
+                    setTimeout(checkContent, 1500);
             }
         }
     }
     function checkContent() {
         console.log("#call check");
+        let cardSec = document.getElementById("cardSec");
         console.log(cardSec.getElementsByClassName("open"));
         let card1 = cardSec.getElementsByClassName("open")[0];
         let card2 = cardSec.getElementsByClassName("open")[1];
-        if (card1.getAttribute("title") == card2.getAttribute("title")) {
-            //overlay("Succeed");
+        if (card1.getAttribute("content") == card2.getAttribute("content")) {
             card1.setAttribute("class", "taken");
             card1.removeEventListener("click", cardInteraction);
             card2.setAttribute("class", "taken");
@@ -199,82 +169,38 @@ var Memory;
             console.log("Paar gefunden");
             console.log(cardSec.getElementsByClassName("taken").length);
             console.log(cardSec.getElementsByClassName("open").length);
+            if (cardSec.getElementsByClassName("hidden").length == 0) {
+                alert("Herzlichen Glückwunsch!\n👑\nAlle Pärchen wurden gefunden!");
+                location.reload();
+            }
+            else {
+                alert("🎉Herzlichen Glückwunsch🎉\nDu hast ein Pärchen gefunden!");
+            }
         }
         else {
-            //overlay("Fail");
             card1.setAttribute("class", "hidden");
             card2.setAttribute("class", "hidden");
-            scoreEvent();
-            end();
+            alert("❌Leider kein Pärchen gefunden❌");
             console.log("kein Paar");
             console.log(cardSec.getElementsByClassName("open").length);
         }
     }
-    //war bis jetzt funtionslos, muss noch angepasst werden
-    function scoreEvent() {
-    }
-    //diese function definiert das ende des spiels, soll, wenn alles fertig ist, 
-    //einen alert ausgeben und man soll das spiel neu starten können
-    function end() {
-        if (cardSec.getElementsByClassName("hidden").length == 0) {
-            //overlay("Triumph");
-            init();
-        }
-    }
-    //Zukünfitge alerts (.css fehlt noch und die onclick = off() Funktion)
-    /*function overlay(_status: string): void{
-        
-        let overlay: HTMLDivElement = document.createElement("div");
-        overlay.id = "overlay" + _status;
-        cardSec.appendChild(overlay);
-        
-        let h2: HTMLHeadingElement = document.createElement("h2");
-        overlay.appendChild(h2);
-        let h3: HTMLHeadingElement = document.createElement("h3");
-        overlay.appendChild(h3);
-        let p: HTMLParagraphElement = document.createElement("p");
-        overlay.appendChild(p);
-        
-            switch(_status) {
-                case "Succeed": h2.innerHTML="Passendes Pärchen!";
-                                
-                                h3.style.display = "none";
-    
-                                p.innerHTML="";
-                                break;
-                    
-                case "Fail":    h2.innerHTML="Keine Übereinstimmung";
-                                
-                                h3.style.display = "none";
-    
-                                p.innerHTML="";
-                                break;
-                    
-                case "Triumph": h2.innerHTML="Herzlichen Glückwunsch!";
-                                
-                                h3.style.display = "default";
-                                h3.innerHTML="";
-                                
-                                p.innerHTML="";
-                                break;
-            }
-        }*/
     //__________________________________________________________________________________________________________________    
     function createFooter() {
         console.log("#call createFooter");
-        footer = document.createElement("footer");
+        let footer = document.createElement("footer");
         document.body.appendChild(footer);
-        footerP = document.createElement("p");
+        let footerP = document.createElement("p");
         footerP.innerHTML = "© Laura Vogt";
         footer.appendChild(footerP);
-        footerSpan = document.createElement("span");
+        let footerSpan = document.createElement("span");
         footer.appendChild(footerSpan);
-        userLink = document.createElement("a");
+        let userLink = document.createElement("a");
         userLink.href = "https://steflaur.github.io";
         userLink.target = "_blank";
         userLink.innerText = "Userpage";
         footerSpan.appendChild(userLink);
-        projectLink = document.createElement("a");
+        let projectLink = document.createElement("a");
         projectLink.href = "https://steflaur.github.io/EIA2";
         projectLink.target = "_blank";
         projectLink.innerText = "Projectpage";

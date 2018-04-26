@@ -1,1 +1,2 @@
-declare function greeter(): void;
+declare namespace A00 {
+}

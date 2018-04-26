@@ -9,7 +9,7 @@ Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert. 
 */
 
-
+namespace A00{
 
     function greeter(): void {
         let name: string = prompt("Wer klopft?", "knockknock");
@@ -26,3 +26,4 @@ nicht kopiert und auch nicht diktiert.
         document.getElementById("txt").innerHTML= text;
     }//funktion close
     
+}
