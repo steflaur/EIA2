@@ -2,6 +2,7 @@ declare namespace L04_Interfaces {
     interface Studi {
         name: string;
         firstname: string;
+        studies: string;
         matrikel: number;
         age: number;
         gender: boolean;
