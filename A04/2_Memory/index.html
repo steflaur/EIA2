@@ -1,8 +1,8 @@
 <!--/* 
-Aufgabe 03: Memory interaktiv
+Aufgabe 04: Memory
 Name: Laura Vogt
 Matrikel: 256056
-Datum: 22.Apr18
+Datum: 06.Mai18
 
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
@@ -11,18 +11,75 @@ nicht kopiert und auch nicht diktiert.
 
 <!DOCTYPE html>
 
-	<html lang="de">
-	
-		<head>
-			<meta charset="utf-8">
-		    <title>Aufgabe 3: Memory interaktiv</title>
-		    <link href="css/main.css" type="text/css" rel="stylesheet">
-		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		    
-			<script type="text/javascript" src="scripts/main.js"></script>
-			
-		</head>
-		
-		<body>
-		</body>
-	</html>
+<html lang="de">
+
+<head>
+<meta charset="utf-8">
+<title>Aufgabe 4: Memory</title>
+<link href="css/main.css" type="text/css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript" src="scripts/main.js"></script>
+<script type="text/javascript" src="scripts/decks.js"></script>
+
+</head>
+
+<body>
+	<header>
+		<h1>Memory</h1>
+	</header>
+
+	<main id="main"> <!-- Formular -->
+	<section id="formSec">
+		<h2>create game</h2>
+
+		<!-- Auswahl Deck -->
+		<hr>
+		<h3>choose deck of cards</h3>
+		<select name="Select" id="select-Deck">
+			<option value="ABC">letters</option>
+			<option value="123">numbers</option>
+			<option value="flower">flowers</option>
+		</select>
+
+		<!-- Kartenpaare -->
+		<hr>
+		<h3>choose number of pairs</h3>
+		<!-- soll in ts. erstellt werden in abh zu select-->
+		<input type="range" name="pair-Slider" min="0" max="5" step="1"
+			value="4" />
+
+		<!-- Anzahl Spieler -->
+		<hr>
+		<h3>choose number of player</h3>
+		<input type="number" name="player-Stepper"
+			placeholder="Anzahl Spieler" min="1" max="4" />
+
+		<!-- Name Spieler -->
+		<hr>
+		<h3>insert player names</h3>
+		<!-- soll in ts. erstellt werden in abh. zu stepper -->
+		<input type="text" name="player0" placeholder="Player 1" /><br>
+		<input type="text" name="player1" placeholder="Player 2" /><br>
+		<input type="text" name="player2" placeholder="Player 3" /><br>
+		<input type="text" name="player3" placeholder="Player 4" /><br>
+
+		<button type="button" id="start-Game">let's play</button>
+	</section>
+
+	<!-- Abschnitt Player -->
+	<section id="infoSec"></section>
+
+	<!-- Abschnitt Karten -->
+	<section id="cardSec"></section>
+
+	</main>
+
+	<footer>
+		<p>© Laura Vogt</p>
+		<span> <a href="https://steflaur.github.io" target="_blank">Userpage</a>
+			<a href="https://steflaur.github.io/EIA2" target="_blank">Projectpage</a>
+		</span>
+	</footer>
+</body>
+</html>
