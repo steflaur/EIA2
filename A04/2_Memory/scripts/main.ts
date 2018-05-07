@@ -12,69 +12,126 @@ namespace A4 {
 
     document.addEventListener("DOMContentLoaded", init);
 
+    //globale lets
+    let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+    let playerSum: string[] = [];
+    let pairsSum: string[] = [];
+
     function init(): void {
 
-        document.getElementById("start-Game").addEventListener("click", game);
+        let startButt: HTMLButtonElement = <HTMLButtonElement>document.getElementById("startButt");
+        startButt.addEventListener("click", game);
+        let addButt: HTMLButtonElement = <HTMLButtonElement>document.getElementById("addButt");
+        addButt.addEventListener("click", addPlayer);
+        let removeButt: HTMLButtonElement = <HTMLButtonElement>document.getElementById("removeButt");
+        removeButt.addEventListener("click", removePlayer);
 
-        document.getElementById("select-Deck").addEventListener("change", createSlider);
-        document.getElementById("player-Stepper").addEventListener("change", createInput);
+        let lastInput: HTMLInputElement = inputs[(inputs.length - 1)];
+        lastInput.addEventListener("onkeyup", enter);
 
-        let selectOpt: HTMLSelectElement = <HTMLSelectElement>document.getElementById("select");
+        let select: HTMLSelectElement = <HTMLSelectElement>document.getElementById("select-Deck")
+        select.addEventListener("change", changeSlider);
+
 
     }
 
-    function createSlider() {
+    function changeSlider(): void {
+        let slider: HTMLInputElement = inputs[0];
+        // set min & max & value
+        slider.setAttribute("min", ""); //deck min
+        slider.setAttribute("max", ""); //deck max
+        slider.setAttribute("value", ""); //mitte
 
+        let sliderMin = document.getElementById("sliderMin");
+        sliderMin.innerHTML = slider.min;
+        let sliderMax = document.getElementById("sliderMax");
+        sliderMax.innerHTML = slider.max;
+
+        let sliderVal = document.getElementById("sliderVal");
+        sliderVal.innerHTML = slider.value;
+
+        slider.oninput = function() {
+            sliderVal.innerHTML = this.value;
+        }
     }
 
-    function createInput() {
+    function addPlayer(): void {
+        console.log("#call add");
+        let container: HTMLElement = document.getElementById("player-Inputfields");
 
+        if (inputs.length < 5) {
+            let playerInput: HTMLElement = document.createElement("input");
+
+            playerInput.setAttribute("type", "text");
+            playerInput.setAttribute("placeholder", "insert name");
+            playerInput.setAttribute("name", "playerName");
+            playerInput.setAttribute("id", "input" + (inputs.length - 1));
+            playerInput.setAttribute("maxlength", "8");
+            container.appendChild(playerInput);
+            console.log("create input for player" + (inputs.length - 1));
+        }
     }
+
+    function enter() {
+        
+    }
+    
+    function back(){
+        
+    }
+
+    function removePlayer(): void {
+        console.log("#call remove");
+        let node: HTMLElement = document.getElementById("player-Inputfields");
+        if (inputs.length > 2) {
+            node.removeChild(node.lastChild);
+            console.log("remove input for player" + inputs.length);
+        }
+    }
+
 
     //_____________________________________________________________________________________________________________________     
     function game(): void {
         console.log("#call game")
+        
         document.getElementById("formSec").style.display = "none";
         console.log("invisible Form");
         document.getElementById("infoSec").style.display = "block";
         document.getElementById("cardSec").style.display = "block";
-
-        //createGame(/*parameters*/);
-    }
-
-    //_____________________________________________________________________________________________________________________    
-    function createGame(_pairs: number, _player: number): void {
-
+        
         let main: HTMLElement = document.getElementById("main");
 
         //call functions
-        createPlayerInfo(_player, main);
+        createPlayerInfo(playerSum, main);
 
-        createCardArea(_pairs, main);
+        createCardArea(pairsSum, main);
     }
+
     //_____________________________________________________________________________________________________________________    
-    function createPlayerInfo(_player: number, _main: HTMLElement): void {
+
+    //_____________________________________________________________________________________________________________________    
+    function createPlayerInfo(_player: string[], _main: HTMLElement): void {
         console.log("#call createInfo");
 
         let infoSec: HTMLElement = document.getElementById("infoSec");
         console.log("load Player Section");
 
-        for (let i: number = 0; i < _player; i++) {
+        for (let i: number = 0; i < _player.length; i++) {
             let box: HTMLFieldSetElement = document.createElement("fieldset");
             infoSec.appendChild(box);
 
             let boxLegend: HTMLLegendElement = document.createElement("legend");
-            boxLegend.innerHTML = "Spieler " + (_player + i) + ":";
+            boxLegend.innerHTML = "Spieler " + _player[i] + ":";
             box.appendChild(boxLegend);
 
             let boxContent: HTMLParagraphElement = document.createElement("p");
             boxContent.innerHTML = "Score: ";
             box.appendChild(boxContent);
-            console.log("create box for player " + (_player + i));
+            console.log("create box for player " + _player[i]);
         }
     }
     //_____________________________________________________________________________________________________________________     
-    function createCardArea(_pairs: number, _main: HTMLElement): void {
+    function createCardArea(_pairs: string[], _main: HTMLElement): void {
         console.log("#call createCardArea");
 
         let cardSec: HTMLElement = document.getElementById("cardSec");
@@ -85,7 +142,7 @@ namespace A4 {
         console.log("total content " + cardContent);
 
         //neues array aus content in passender anzahl
-        let cardContentNeeded: string[] = cardContent.slice(0, _pairs);
+        let cardContentNeeded: string[] = cardContent.slice(0, _pairs.length);
         console.log("needed content " + cardContentNeeded);
 
         //double

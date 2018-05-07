@@ -37,34 +37,34 @@ nicht kopiert und auch nicht diktiert.
 		<hr>
 		<h3>choose deck of cards</h3>
 		<select name="Select" id="select-Deck">
-			<option value="ABC">letters</option>
-			<option value="123">numbers</option>
-			<option value="flower">flowers</option>
+			<option value="0">lorem ipsum</option>
+			<option value="1">letters</option>
+			<option value="2">numbers</option>
+			<option value="3">flowers</option>
 		</select>
 
 		<!-- Kartenpaare -->
 		<hr>
 		<h3>choose number of pairs</h3>
 		<!-- soll in ts. erstellt werden in abh zu select-->
-		<input type="range" name="pair-Slider" min="0" max="5" step="1"
-			value="4" />
-
-		<!-- Anzahl Spieler -->
-		<hr>
-		<h3>choose number of player</h3>
-		<input type="number" name="player-Stepper"
-			placeholder="Anzahl Spieler" min="1" max="4" />
+			<input type="range" id="input1" name="sliderPairs"/>
+			<p id="sliderMin"></p>
+			<p id="sliderVal"></p>
+			<p id="sliderMax"></p>
 
 		<!-- Name Spieler -->
 		<hr>
 		<h3>insert player names</h3>
-		<!-- soll in ts. erstellt werden in abh. zu stepper -->
-		<input type="text" name="player0" placeholder="Player 1" /><br>
-		<input type="text" name="player1" placeholder="Player 2" /><br>
-		<input type="text" name="player2" placeholder="Player 3" /><br>
-		<input type="text" name="player3" placeholder="Player 4" /><br>
+		<div id="player-Inputfields">
+			<input type="text" placeholder="insert name" name="playerName"
+				id="input2" maxlength="8" />
+		</div>
+		<span>
+			<button id="addButt" class="playerButt">add</button>
+			<button id="removeButt" class="playerButt">remove</button>
+		</span>
 
-		<button type="button" id="start-Game">let's play</button>
+		<button type="button" id="startButt">let's play</button>
 	</section>
 
 	<!-- Abschnitt Player -->

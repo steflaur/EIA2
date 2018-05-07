@@ -10,15 +10,63 @@ nicht kopiert und auch nicht diktiert.
 var A4;
 (function (A4) {
     document.addEventListener("DOMContentLoaded", init);
+    //globale lets
+    let inputs = document.getElementsByTagName("input");
+    let playerSum = [];
+    let pairsSum = [];
     function init() {
-        document.getElementById("start-Game").addEventListener("click", game);
-        document.getElementById("select-Deck").addEventListener("change", createSlider);
-        document.getElementById("player-Stepper").addEventListener("change", createInput);
-        let selectOpt = document.getElementById("select");
+        let startButt = document.getElementById("startButt");
+        startButt.addEventListener("click", game);
+        let addButt = document.getElementById("addButt");
+        addButt.addEventListener("click", addPlayer);
+        let removeButt = document.getElementById("removeButt");
+        removeButt.addEventListener("click", removePlayer);
+        let lastInput = inputs[(inputs.length - 1)];
+        lastInput.addEventListener("onkeyup", enter);
+        let select = document.getElementById("select-Deck");
+        select.addEventListener("change", changeSlider);
     }
-    function createSlider() {
+    function changeSlider() {
+        let slider = inputs[0];
+        // set min & max & value
+        slider.setAttribute("min", ""); //deck min
+        slider.setAttribute("max", ""); //deck max
+        slider.setAttribute("value", ""); //mitte
+        let sliderMin = document.getElementById("sliderMin");
+        sliderMin.innerHTML = slider.min;
+        let sliderMax = document.getElementById("sliderMax");
+        sliderMax.innerHTML = slider.max;
+        let sliderVal = document.getElementById("sliderVal");
+        sliderVal.innerHTML = slider.value;
+        slider.oninput = function () {
+            sliderVal.innerHTML = this.value;
+        };
     }
-    function createInput() {
+    function addPlayer() {
+        console.log("#call add");
+        let container = document.getElementById("player-Inputfields");
+        if (inputs.length < 5) {
+            let playerInput = document.createElement("input");
+            playerInput.setAttribute("type", "text");
+            playerInput.setAttribute("placeholder", "insert name");
+            playerInput.setAttribute("name", "playerName");
+            playerInput.setAttribute("id", "input" + (inputs.length - 1));
+            playerInput.setAttribute("maxlength", "8");
+            container.appendChild(playerInput);
+            console.log("create input for player" + (inputs.length - 1));
+        }
+    }
+    function enter() {
+    }
+    function back() {
+    }
+    function removePlayer() {
+        console.log("#call remove");
+        let node = document.getElementById("player-Inputfields");
+        if (inputs.length > 2) {
+            node.removeChild(node.lastChild);
+            console.log("remove input for player" + inputs.length);
+        }
     }
     //_____________________________________________________________________________________________________________________     
     function game() {
@@ -27,30 +75,27 @@ var A4;
         console.log("invisible Form");
         document.getElementById("infoSec").style.display = "block";
         document.getElementById("cardSec").style.display = "block";
-        //createGame(/*parameters*/);
-    }
-    //_____________________________________________________________________________________________________________________    
-    function createGame(_pairs, _player) {
         let main = document.getElementById("main");
         //call functions
-        createPlayerInfo(_player, main);
-        createCardArea(_pairs, main);
+        createPlayerInfo(playerSum, main);
+        createCardArea(pairsSum, main);
     }
+    //_____________________________________________________________________________________________________________________    
     //_____________________________________________________________________________________________________________________    
     function createPlayerInfo(_player, _main) {
         console.log("#call createInfo");
         let infoSec = document.getElementById("infoSec");
         console.log("load Player Section");
-        for (let i = 0; i < _player; i++) {
+        for (let i = 0; i < _player.length; i++) {
             let box = document.createElement("fieldset");
             infoSec.appendChild(box);
             let boxLegend = document.createElement("legend");
-            boxLegend.innerHTML = "Spieler " + (_player + i) + ":";
+            boxLegend.innerHTML = "Spieler " + _player[i] + ":";
             box.appendChild(boxLegend);
             let boxContent = document.createElement("p");
             boxContent.innerHTML = "Score: ";
             box.appendChild(boxContent);
-            console.log("create box for player " + (_player + i));
+            console.log("create box for player " + _player[i]);
         }
     }
     //_____________________________________________________________________________________________________________________     
@@ -62,7 +107,7 @@ var A4;
         let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
         console.log("total content " + cardContent);
         //neues array aus content in passender anzahl
-        let cardContentNeeded = cardContent.slice(0, _pairs);
+        let cardContentNeeded = cardContent.slice(0, _pairs.length);
         console.log("needed content " + cardContentNeeded);
         //double
         cardContentNeeded = cardContentNeeded.concat(cardContentNeeded);
