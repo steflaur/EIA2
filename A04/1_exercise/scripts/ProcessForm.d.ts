@@ -1,2 +1,2 @@
-declare namespace L04_Interfaces {
+declare namespace L04_exer {
 }

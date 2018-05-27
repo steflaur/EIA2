@@ -1,4 +1,4 @@
-declare namespace A4 {
+declare namespace A4_Memory {
     interface CardDeck {
         deckName: string;
         cardContent: string[];

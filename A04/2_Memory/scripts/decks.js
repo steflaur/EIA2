@@ -7,11 +7,11 @@ Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
-var A4;
-(function (A4) {
+var A4_Memory;
+(function (A4_Memory) {
     ;
-    A4.decks = {};
-    A4.deck = {
+    A4_Memory.decks = {};
+    A4_Memory.deck = {
         deckName: "ABC",
         cardContent: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
         cardColor: "blue",
@@ -21,8 +21,8 @@ var A4;
         cardMax: 26,
         cardMin: 2
     };
-    A4.decks["ABC"] = A4.deck;
-    A4.deck = {
+    A4_Memory.decks["ABC"] = A4_Memory.deck;
+    A4_Memory.deck = {
         deckName: "123",
         cardContent: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
         cardColor: "green",
@@ -32,10 +32,10 @@ var A4;
         cardMax: 10,
         cardMin: 2
     };
-    A4.decks["123"] = A4.deck;
-    A4.deck = {
+    A4_Memory.decks["123"] = A4_Memory.deck;
+    A4_Memory.deck = {
         deckName: "flower",
-        cardContent: ["Tulpe", "Lilie", "Rose", "Sonnenblume", "Calla", "Klatschmohn", "Orchidee", "Maiglöckchen", "Löwenmaul", "Christrose ", "Primel", "Hibiskus", "Edelweiß"],
+        cardContent: ["Tulpe", "Lilie", "Rose", "Sonnenblume", "Calla", "Klatschmohn", "Orchidee", "MaiglÃ¶ckchen", "LÃ¶wenmaul", "Christrose ", "Primel", "Hibiskus", "EdelweiÃŸ"],
         cardColor: "red",
         borderColor: "",
         fontColor: "",
@@ -43,8 +43,8 @@ var A4;
         cardMax: 13,
         cardMin: 2
     };
-    A4.decks["flower"] = A4.deck;
-    A4.deck = {
+    A4_Memory.decks["flower"] = A4_Memory.deck;
+    A4_Memory.deck = {
         deckName: "sign",
         cardContent: ["cancer", "taurus", "gemini", "pisces", "aries", "libra", "aquarius", "capricorn", "scorpio", "virgo ", "sagittarius", "leo"],
         cardColor: "black",
@@ -54,6 +54,6 @@ var A4;
         cardMax: 12,
         cardMin: 2
     };
-    A4.decks["sign"] = A4.deck;
-})(A4 || (A4 = {}));
+    A4_Memory.decks["sign"] = A4_Memory.deck;
+})(A4_Memory || (A4_Memory = {})); //namespace
 //# sourceMappingURL=decks.js.map

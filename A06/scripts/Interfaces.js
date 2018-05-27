@@ -1,8 +1,8 @@
-var L04_exer;
-(function (L04_exer) {
+var L06_studiVZ;
+(function (L06_studiVZ) {
     // Simples Array zum Speichern der Studi-Datensätze (nur zur Demonstration)
-    L04_exer.studiSimpleArray = [];
+    L06_studiVZ.studiSimpleArray = [];
     // Homogenes assoziatives Array zur Speicherung einer Person unter der Matrikelnummer
-    L04_exer.studiHomoAssoc = {};
-})(L04_exer || (L04_exer = {}));
+    L06_studiVZ.studiHomoAssoc = {};
+})(L06_studiVZ || (L06_studiVZ = {}));
 //# sourceMappingURL=Interfaces.js.map

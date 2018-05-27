@@ -1,4 +1,4 @@
-namespace L04_Interfaces {
+namespace L04_exer {
     window.addEventListener("load", init);
 
     let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");

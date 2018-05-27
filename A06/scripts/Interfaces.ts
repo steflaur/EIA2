@@ -1,4 +1,4 @@
-namespace L04_exer {
+namespace L06_studiVZ {
     // Struktur des heterogenen assoziativen Arrays als Datensatz für eine studierende Person
     export interface Studi {
         name: string;

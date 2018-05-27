@@ -8,7 +8,7 @@ Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
 
-namespace A4 {
+namespace A4_Memory {
     // Interface einer Karte bestimmen
     export interface CardDeck {
         deckName: string;
@@ -55,7 +55,7 @@ namespace A4 {
 
     deck = {
         deckName: "flower",
-        cardContent: ["Tulpe", "Lilie", "Rose", "Sonnenblume", "Calla", "Klatschmohn", "Orchidee", "Maiglöckchen", "Löwenmaul", "Christrose ", "Primel", "Hibiskus", "Edelweiß"],
+        cardContent: ["Tulpe", "Lilie", "Rose", "Sonnenblume", "Calla", "Klatschmohn", "Orchidee", "MaiglÃ¶ckchen", "LÃ¶wenmaul", "Christrose ", "Primel", "Hibiskus", "EdelweiÃŸ"],
         cardColor: "red",
         borderColor: "",
         fontColor: "",
@@ -77,4 +77,7 @@ namespace A4 {
     };
     decks["sign"] = deck;
 
-}
+    
+    
+    
+} //namespace

@@ -1,5 +1,5 @@
-var L04_Interfaces;
-(function (L04_Interfaces) {
+var L04_exer;
+(function (L04_exer) {
     window.addEventListener("load", init);
     let inputs = document.getElementsByTagName("input");
     let output = document.getElementsByTagName("textarea");
@@ -30,16 +30,16 @@ var L04_Interfaces;
         console.log(studi.age);
         console.log(studi["age"]);
         // Datensatz im assoziativen Array unter der Matrikelnummer speichern
-        L04_Interfaces.studiHomoAssoc[matrikel] = studi;
+        L04_exer.studiHomoAssoc[matrikel] = studi;
         // nur um das auch noch zu zeigen...
-        L04_Interfaces.studiSimpleArray.push(studi);
+        L04_exer.studiSimpleArray.push(studi);
     } //insert
     function refresh(_event) {
         console.log("#call refresh");
         output[0].value = "";
         // for-in-Schleife iteriert über die Schlüssel des assoziativen Arrays
-        for (let matrikel in L04_Interfaces.studiHomoAssoc) {
-            let studi = L04_Interfaces.studiHomoAssoc[matrikel];
+        for (let matrikel in L04_exer.studiHomoAssoc) {
+            let studi = L04_exer.studiHomoAssoc[matrikel];
             let line = matrikel + ": ";
             line += studi.name + ", " + studi.firstname + ", " + studi.studies + ", " + studi.age + " Jahre ";
             line += studi.gender ? "(M)" : "(F)";
@@ -47,17 +47,17 @@ var L04_Interfaces;
         } //for
         // zusätzliche Konsolenausgaben zur Demonstration
         console.group("Simple Array");
-        console.log(L04_Interfaces.studiSimpleArray);
+        console.log(L04_exer.studiSimpleArray);
         console.groupEnd();
         console.group("Associatives Array (Object)");
-        console.log(L04_Interfaces.studiHomoAssoc);
+        console.log(L04_exer.studiHomoAssoc);
         console.groupEnd();
     } //function
     function search(_event) {
         console.log("#call search");
         output[1].value = "";
         let input = inputs[6].value;
-        let studi = L04_Interfaces.studiHomoAssoc[input];
+        let studi = L04_exer.studiHomoAssoc[input];
         let line = "Zur Matrikelnumer " + input;
         if (studi) {
             line += " sind folgende Daten gespeichert:\n";
@@ -72,5 +72,5 @@ var L04_Interfaces;
         output[1].value += line + "\n";
         console.log("generate output txt.f2");
     } //function
-})(L04_Interfaces || (L04_Interfaces = {})); //namespace
+})(L04_exer || (L04_exer = {})); //namespace
 //# sourceMappingURL=ProcessForm.js.map

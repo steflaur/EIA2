@@ -8,15 +8,15 @@ Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
 
-namespace A4 {
+namespace A4_Memory {
 
     document.addEventListener("DOMContentLoaded", init);
 
     //globale lets
     let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
-    let playerSum: string[] = [];
-    let pairsSum: string[] = [];
-
+    let choosenDeck: string;
+    
+    
     function init(): void {
 
         let startButt: HTMLButtonElement = <HTMLButtonElement>document.getElementById("startButt");
@@ -31,27 +31,32 @@ namespace A4 {
 
         let select: HTMLSelectElement = <HTMLSelectElement>document.getElementById("select-Deck")
         select.addEventListener("change", changeSlider);
-
-
     }
 
     function changeSlider(): void {
         let slider: HTMLInputElement = inputs[0];
-        // set min & max & value
-        slider.setAttribute("min", ""); //deck min
-        slider.setAttribute("max", ""); //deck max
-        slider.setAttribute("value", ""); //mitte
-
-        let sliderMin = document.getElementById("sliderMin");
-        sliderMin.innerHTML = slider.min;
-        let sliderMax = document.getElementById("sliderMax");
-        sliderMax.innerHTML = slider.max;
-
+        let selectOpt: HTMLSelectElement = <HTMLSelectElement>document.getElementById("select-Deck");
+        let choice: string = selectOpt.value;
         let sliderVal = document.getElementById("sliderVal");
-        sliderVal.innerHTML = slider.value;
+        console.log(choice);
+        if (choice == "0") {
+            slider.removeAttribute("min");
+            slider.removeAttribute("value");
+            slider.removeAttribute("max");
+            sliderVal.innerHTML = "";
+            alert("please make a choice!")
+        }
+        else {
+            slider.setAttribute("min", decks[choice].cardMin.toString());
+            slider.setAttribute("value", decks[choice].cardMin.toString());
+            slider.setAttribute("max", decks[choice].cardMax.toString());
 
-        slider.oninput = function() {
-            sliderVal.innerHTML = this.value;
+            sliderVal.innerHTML = slider.value;
+
+            slider.oninput = function() {
+                sliderVal.innerHTML = this.value;
+                slider.setAttribute("value", this.value);
+            }
         }
     }
 
@@ -63,8 +68,8 @@ namespace A4 {
             let playerInput: HTMLElement = document.createElement("input");
 
             playerInput.setAttribute("type", "text");
-            playerInput.setAttribute("placeholder", "insert name");
-            playerInput.setAttribute("name", "playerName");
+            playerInput.setAttribute("placeholder", "insert name " + inputs.length + " player");
+            playerInput.setAttribute("name", "playerNames");
             playerInput.setAttribute("id", "input" + (inputs.length - 1));
             playerInput.setAttribute("maxlength", "8");
             container.appendChild(playerInput);
@@ -73,11 +78,11 @@ namespace A4 {
     }
 
     function enter() {
-        
+
     }
-    
-    function back(){
-        
+
+    function back() {
+
     }
 
     function removePlayer(): void {
@@ -93,56 +98,66 @@ namespace A4 {
     //_____________________________________________________________________________________________________________________     
     function game(): void {
         console.log("#call game")
-        
+
         document.getElementById("formSec").style.display = "none";
         console.log("invisible Form");
         document.getElementById("infoSec").style.display = "block";
         document.getElementById("cardSec").style.display = "block";
-        
+
         let main: HTMLElement = document.getElementById("main");
 
         //call functions
-        createPlayerInfo(playerSum, main);
+        let playerList: NodeList = document.getElementsByName("playerNames");
+        console.log(playerList);
+        let playerSum: number = playerList.length;
+        console.log(playerSum);
+        createPlayerInfo(playerList, playerSum, main);
 
+        let slider: HTMLInputElement = inputs[0];
+        let pairsSum: number = parseInt(slider.getAttribute("value"));
+        console.log(pairsSum);
         createCardArea(pairsSum, main);
     }
 
     //_____________________________________________________________________________________________________________________    
 
     //_____________________________________________________________________________________________________________________    
-    function createPlayerInfo(_player: string[], _main: HTMLElement): void {
+    function createPlayerInfo(_playerList: NodeList, _player: number, _main: HTMLElement): void {
         console.log("#call createInfo");
 
         let infoSec: HTMLElement = document.getElementById("infoSec");
         console.log("load Player Section");
 
-        for (let i: number = 0; i < _player.length; i++) {
+        for (let i: number = 0; i < _player; i++) {
             let box: HTMLFieldSetElement = document.createElement("fieldset");
             infoSec.appendChild(box);
 
             let boxLegend: HTMLLegendElement = document.createElement("legend");
-            boxLegend.innerHTML = "Spieler " + _player[i] + ":";
+            boxLegend.innerHTML = _playerList[i].getAttribute("text");
             box.appendChild(boxLegend);
 
             let boxContent: HTMLParagraphElement = document.createElement("p");
             boxContent.innerHTML = "Score: ";
             box.appendChild(boxContent);
-            console.log("create box for player " + _player[i]);
+            console.log("create box for player " + _player);
         }
     }
     //_____________________________________________________________________________________________________________________     
-    function createCardArea(_pairs: string[], _main: HTMLElement): void {
+    function createCardArea(_pairs: number, _main: HTMLElement): void {
         console.log("#call createCardArea");
 
         let cardSec: HTMLElement = document.getElementById("cardSec");
         console.log("load Card Section");
 
+        //choosen deck
+        
+        
         //kompletter Kontent
-        let cardContent: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+        let cardContent: string[] //= choosen Deck;
         console.log("total content " + cardContent);
 
         //neues array aus content in passender anzahl
-        let cardContentNeeded: string[] = cardContent.slice(0, _pairs.length);
+        let cardContentNeeded: string[] = cardContent.slice(0, _pairs);
         console.log("needed content " + cardContentNeeded);
 
         //double
