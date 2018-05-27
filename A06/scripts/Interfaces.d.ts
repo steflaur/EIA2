@@ -1,4 +1,4 @@
-declare namespace L06_studiVZ {
+declare namespace A06_studiVZ {
     interface Studi {
         name: string;
         firstname: string;

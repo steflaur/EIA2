@@ -1,2 +1,2 @@
-declare namespace L06_studiVZ {
+declare namespace A06_studiVZ {
 }

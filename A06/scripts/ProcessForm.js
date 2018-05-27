@@ -7,9 +7,12 @@ Datum: 27.Mai18
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
+
+*Code aus A04 übernommen und angepasst
+
 */
-var L06_studiVZ;
-(function (L06_studiVZ) {
+var A06_studiVZ;
+(function (A06_studiVZ) {
     window.addEventListener("load", init);
     let address = "https://steflaur.herokuapp.com/";
     let inputs = document.getElementsByTagName("input");
@@ -78,5 +81,5 @@ var L06_studiVZ;
             output.value += xhr.response;
         }
     }
-})(L06_studiVZ || (L06_studiVZ = {})); //namespace close            
+})(A06_studiVZ || (A06_studiVZ = {})); //namespace close            
 //# sourceMappingURL=ProcessForm.js.map

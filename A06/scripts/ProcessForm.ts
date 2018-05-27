@@ -8,9 +8,12 @@ Datum: 27.Mai18
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert. 
+
+*Code aus A04 übernommen und angepasst
+
 */
 
-namespace L06_studiVZ {
+namespace A06_studiVZ {
     window.addEventListener("load", init);
     let address: string = "https://steflaur.herokuapp.com/";
 
@@ -30,7 +33,7 @@ namespace L06_studiVZ {
     function insert(_event: Event): void {
         console.log("#call insert");
         let genderButton: HTMLInputElement = <HTMLInputElement>document.getElementById("male");
-        let selectOpt: HTMLSelectElement = <HTMLSelectElement>document.getElementById("select");       
+        let selectOpt: HTMLSelectElement = <HTMLSelectElement>document.getElementById("select");
         let matrikel: string = inputs[2].value;
         let studi: Studi;
         studi = {
@@ -41,7 +44,7 @@ namespace L06_studiVZ {
             age: parseInt(inputs[3].value),
             gender: genderButton.checked,
         };
-        
+
         let convert: string = JSON.stringify(studi);
         console.log(convert);
 
@@ -64,33 +67,33 @@ namespace L06_studiVZ {
         xhr.open("GET", address + "?command=refresh", true);
         xhr.addEventListener("readystatechange", handleStateChangeRefresh);
         xhr.send();
-    }    
-    
+    }
+
     function handleStateChangeRefresh(_event: ProgressEvent): void {
         let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
         output.value = "";
         var xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             output.value += xhr.response;
-        }           
+        }
     }
-    
+
     function search(_event: Event): void {
         let mtrkl: string = inputs[6].value;
-        
+
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", address + "?command=search&searchFor=" + mtrkl, true);
         xhr.addEventListener("readystatechange", handleStateChangeSearch);
-        xhr.send();    
+        xhr.send();
     }
-    
+
     function handleStateChangeSearch(_event: ProgressEvent): void {
         let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
         output.value = "";
         var xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             output.value += xhr.response;
-        }           
+        }
     }
-    
+
 }//namespace close            
