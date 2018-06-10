@@ -11,8 +11,8 @@ nicht kopiert und auch nicht diktiert.
 *Code aus A06 übernommen und angepasst
 
 */
-var A08;
-(function (A08) {
+var A08_;
+(function (A08_) {
     window.addEventListener("load", init);
     let address = "https://studi-vz.herokuapp.com/";
     let inputs = document.getElementsByTagName("input");
@@ -97,5 +97,5 @@ var A08;
             output.value += xhr.response;
         }
     }
-})(A08 || (A08 = {})); //namespace close            
+})(A08_ || (A08_ = {})); //namespace close            
 //# sourceMappingURL=client.js.map

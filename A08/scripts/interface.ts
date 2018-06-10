@@ -1,4 +1,4 @@
-namespace A08 {
+namespace A08_ {
     
     // Struktur des heterogenen assoziativen Arrays als Datensatz für eine studierende Person
     export interface StudentData {

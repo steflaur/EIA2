@@ -1,4 +1,4 @@
-declare namespace A08 {
+declare namespace A08_ {
     interface StudentData {
         name: string;
         firstname: string;

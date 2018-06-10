@@ -13,7 +13,7 @@ nicht kopiert und auch nicht diktiert.
 
 */
 
-namespace A08 {
+namespace A08_ {
     window.addEventListener("load", init);
     let address: string = "https://studi-vz.herokuapp.com/";
 
