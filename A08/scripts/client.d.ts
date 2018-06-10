@@ -1,2 +1,2 @@
-declare namespace A08_ {
+declare namespace A08 {
 }

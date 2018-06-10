@@ -1,4 +1,4 @@
-namespace A08_ {
+namespace A08 {
     
     // Struktur des heterogenen assoziativen Arrays als Datensatz für eine studierende Person
     export interface StudentData {
@@ -21,4 +21,7 @@ namespace A08_ {
     // Homogenes assoziatives Array zur Speicherung einer Person unter der Matrikelnummer
     export let studentHomoAssoc: Students = {};
 
+    export interface AssocStringString {
+    [key: string]: string;
+}
 }

@@ -1,4 +1,4 @@
-declare namespace A08_ {
+declare namespace A08 {
     interface StudentData {
         name: string;
         firstname: string;
@@ -11,4 +11,7 @@ declare namespace A08_ {
     }
     let studentSimpleArray: StudentData[];
     let studentHomoAssoc: Students;
+    interface AssocStringString {
+        [key: string]: string;
+    }
 }
