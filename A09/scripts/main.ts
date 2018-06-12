@@ -20,8 +20,9 @@ namespace A09_canvas {
         let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
         console.log("CanvasRendering2d active");
 
-        ctx.fillRect(0, 0, 400, 400);
+        
         ctx.fillStyle = "blue";
+        ctx.fillRect(0, 0, 400, 400);
         
     }//close init
     
