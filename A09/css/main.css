@@ -1,0 +1,24 @@
+/* 
+Aufgabe 09: Canvas
+Name: Laura Vogt
+Matrikel: 256056
+Datum: 
+
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert. 
+*/
+
+/*@CHARSET "UTF-8";
+
+@import
+url('');*/
+
+* {
+	margin:;
+	padding:;
+}
+
+canvas {
+	align: center;
+}
