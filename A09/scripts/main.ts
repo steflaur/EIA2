@@ -22,7 +22,7 @@ namespace A09_canvas {
 
         
         ctx.fillStyle = "blue";
-        ctx.fillRect(0, 0, 400, 400);
+        ctx.fillRect(0, 0, 600, 400);
         
     }//close init
     
