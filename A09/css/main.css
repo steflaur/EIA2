@@ -15,11 +15,6 @@ nicht kopiert und auch nicht diktiert.
 url('');*/
 
 * {
-	margin:;
-	padding:;
-}
-
-canvas {
-	align: center;
-	color: black;
+	margin: 0;
+	padding: 0;
 }
