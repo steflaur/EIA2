@@ -17,7 +17,7 @@ var A09_canvas;
         let ctx = canvas.getContext("2d");
         console.log("CanvasRendering2d active");
         ctx.fillStyle = "blue";
-        ctx.fillRect(0, 0, 400, 400);
+        ctx.fillRect(0, 0, 600, 400);
     } //close init
 })(A09_canvas || (A09_canvas = {})); //close namespace
 //# sourceMappingURL=main.js.map
