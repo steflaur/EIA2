@@ -50,3 +50,8 @@ footer a:hover {
 footer a:active {
 	cursor: grabbing;
 }
+
+/* Desktop Ansicht: grösser 1024px / 64em - open end */
+@media screen and (min-width: 64em) {
+
+	}
