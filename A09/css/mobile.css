@@ -26,6 +26,10 @@ html {
 	background-color: whitesmoke;
 }
 
+canvas {
+  width: 100%;
+}
+
 
 
 footer {
