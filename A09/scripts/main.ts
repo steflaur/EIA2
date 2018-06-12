@@ -21,6 +21,7 @@ namespace A09_canvas {
         console.log("CanvasRendering2d active");
 
         ctx.fillRect(0, 0, 400, 400);
+        ctx.fillStyle = "blue";
         
     }//close init
     
