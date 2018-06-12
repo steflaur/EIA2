@@ -14,7 +14,39 @@ nicht kopiert und auch nicht diktiert.
 @import
 url('');*/
 
+@import url('https://fonts.googleapis.com/css?family=Gugi');
+
 * {
 	margin: 0;
 	padding: 0;
+}
+
+html {
+	width: 100%;
+	background-color: whitesmoke;
+}
+
+canvas {
+  display: block;
+	margin:  2% auto; 
+}
+
+footer {
+	font-family: 'Gugi', cursive;
+	text-align: center;
+	background-color: lightgrey;
+	padding: 1em 0;
+}
+
+footer a:link, footer a:visited {
+text-decoration: none;
+	color: black;
+}
+
+footer a:hover {
+	cursor: grab;
+	color: blue;
+}
+footer a:active {
+	cursor: grabbing;
 }
