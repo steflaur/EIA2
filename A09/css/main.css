@@ -14,7 +14,7 @@ nicht kopiert und auch nicht diktiert.
 @import
 url('');*/
 
-@import url('https://fonts.googleapis.com/css?family=Gugi');
+@import url('https://fonts.googleapis.com/css?family=Cinzel:700');
 
 * {
 	margin: 0;
@@ -26,32 +26,13 @@ html {
 	background-color: whitesmoke;
 }
 
+h1 {
+	font-family: 'Cinzel', serif;
+	text-align: center;
+}
+
 canvas {
   display: block;
 	margin:  2% auto; 
 }
 
-footer {
-	font-family: 'Gugi', cursive;
-	text-align: center;
-	background-color: lightgrey;
-	padding: 1em 0;
-}
-
-footer a:link, footer a:visited {
-text-decoration: none;
-	color: black;
-}
-
-footer a:hover {
-	cursor: grab;
-	color: blue;
-}
-footer a:active {
-	cursor: grabbing;
-}
-
-/* Desktop Ansicht: grösser 1024px / 64em - open end */
-@media screen and (min-width: 64em) {
-
-	}
