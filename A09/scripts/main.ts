@@ -22,9 +22,8 @@ namespace A09_canvas {
         let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
         console.log("CanvasRendering2d active");
 
-
         ctx.strokeStyle = b;
-        ctx.strokeRect(0, 0, 800, 600);
+        ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
         //Wasser
         drawWater("lightblue", "skyblue", canvas.width, canvas.height, 10, 400, ctx);
@@ -34,6 +33,10 @@ namespace A09_canvas {
 
         //Schatzkiste
         drawBubbler("saddlebrown", "#5a2d0c", 350, 520, ctx);
+
+        //Pflanzen
+        drawPlant("green", "darkgreen", "brown", 85, 400, ctx);
+        drawPlant("green", "darkgreen", "brown", 700, 500, ctx);
 
         //BubbleLoops
         for (let i: number = 0; i < 20; i++) {
@@ -60,15 +63,18 @@ namespace A09_canvas {
             drawBubble("skyblue", "whitesmoke", x, y, 2, ctx);
         }//close
 
-        //Pflanzen
-        drawPlant("green", "darkgreen", "brown", 85, 400, ctx);
-        drawPlant("green", "darkgreen", "brown", 700, 500, ctx);
-
         //FishLoop
-        for (let i: number = 0; i < 15; i++) {
+        for (let i: number = 0; i < 10; i++) {
             let x: number = Math.random() * 800;
             let y: number = 50 + Math.random() * 400;
             doriFish("blue", "darkblue", "yellow", "gold", "whitesmoke", x, y, ctx);
+        }//close
+        
+        //FishLoop
+        for (let i: number = 0; i < 5; i++) {
+            let x: number = Math.random() * 800;
+            let y: number = 50 + Math.random() * 400;
+            doriFish("PaleVioletRed ", "MediumVioletRed ", "Thistle ", "Thistle ", "whitesmoke", x, y, ctx);
         }//close
 
     }//close init
