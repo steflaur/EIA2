@@ -41,9 +41,16 @@ namespace A09_canvas {
         ctx.lineTo(0, 600);
         ctx.lineTo(0, 400);
         ctx.stroke();
-        ctx.fillStyle = "#dbd1b3";
+        ctx.fillStyle = "peru";
         ctx.fill();
         ctx.closePath();
+        
+        //Kies
+        for (let i: number = 0; i < 600; i++) {
+            let x: number = Math.random() * 800;
+            let y: number = 500 + Math.random() * 100;
+            drawBubble(x, y, 2, "sienna", "sienna", ctx);
+        }//close
 
         //Pflanzen
         drawPlant(85, 400, ctx);
@@ -54,25 +61,25 @@ namespace A09_canvas {
         for (let i: number = 0; i < 20; i++) {
             let x: number = 200 + Math.random() * 200;
             let y: number = Math.random() * 120;
-            drawBubble(x, y, 5, "#6ce0e0", ctx);
+            drawBubble(x, y, 5, "#6ce0e0", "black", ctx);
         }//close
 
         for (let i: number = 0; i < 20; i++) {
             let x: number = 280 + Math.random() * 80;
             let y: number = 120 + Math.random() * 180;
-            drawBubble(x, y, 4, "#81e4e4", ctx);
+            drawBubble(x, y, 4, "#81e4e4", "black", ctx);
         }//close
 
         for (let i: number = 0; i < 15; i++) {
             let x: number = 340 + Math.random() * 120;
             let y: number = 300 + Math.random() * 140;
-            drawBubble(x, y, 3, "#96e9e9", ctx);
+            drawBubble(x, y, 3, "#96e9e9", "black", ctx);
         }//close
 
         for (let i: number = 0; i < 15; i++) {
             let x: number = 380 + Math.random() * 40;
             let y: number = 440 + Math.random() * 100;
-            drawBubble(x, y, 2, "#abeded", ctx);
+            drawBubble(x, y, 2, "#abeded", "black", ctx);
         }//close
 
 
@@ -90,13 +97,13 @@ namespace A09_canvas {
     }//close init
 
 
-    function drawBubble(_x: number, _y: number, _r: number, _c: string, _ctx: CanvasRenderingContext2D): void {
+    function drawBubble(_x: number, _y: number, _r: number, _cf: string, _cs: string, _ctx: CanvasRenderingContext2D): void {
 
         _ctx.beginPath();
         _ctx.arc(_x, _y, _r, 0, 2 * Math.PI);
-        _ctx.strokeStyle = "black";
+        _ctx.strokeStyle = _cs;
         _ctx.stroke();
-        _ctx.fillStyle = _c;
+        _ctx.fillStyle = _cf;
         _ctx.fill();
         _ctx.closePath();
 
