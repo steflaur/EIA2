@@ -96,7 +96,7 @@ namespace A10_canvas {
             //aussen
             ctx.beginPath();
             ctx.arc(this.x - 15, this.y + 10, 5, 0, 2 * Math.PI);
-            ctx.strokeStyle = b;
+            ctx.strokeStyle = "black";
             ctx.stroke();
             ctx.fillStyle = this.c5;
             ctx.fill();
@@ -105,7 +105,7 @@ namespace A10_canvas {
             //innen
             ctx.beginPath();
             ctx.arc(this.x - 15, this.y + 10, 2.5, 0, 2 * Math.PI);
-            ctx.fillStyle = b;
+            ctx.fillStyle = "black";
             ctx.fill();
             ctx.closePath();
 

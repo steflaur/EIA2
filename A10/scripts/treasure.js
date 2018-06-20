@@ -13,7 +13,7 @@ var A10_canvas;
     //function schatzkiste
     function drawBubbler(_c1, _c2, _x, _y) {
         //Hinten
-        A10_canvas.ctx.strokeStyle = A10_canvas.b;
+        A10_canvas.ctx.strokeStyle = "black";
         A10_canvas.ctx.fillStyle = _c2;
         A10_canvas.ctx.beginPath();
         A10_canvas.ctx.moveTo(_x, _y);

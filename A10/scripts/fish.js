@@ -72,7 +72,7 @@ var A10_canvas;
             //aussen
             A10_canvas.ctx.beginPath();
             A10_canvas.ctx.arc(this.x - 15, this.y + 10, 5, 0, 2 * Math.PI);
-            A10_canvas.ctx.strokeStyle = A10_canvas.b;
+            A10_canvas.ctx.strokeStyle = "black";
             A10_canvas.ctx.stroke();
             A10_canvas.ctx.fillStyle = this.c5;
             A10_canvas.ctx.fill();
@@ -80,7 +80,7 @@ var A10_canvas;
             //innen
             A10_canvas.ctx.beginPath();
             A10_canvas.ctx.arc(this.x - 15, this.y + 10, 2.5, 0, 2 * Math.PI);
-            A10_canvas.ctx.fillStyle = A10_canvas.b;
+            A10_canvas.ctx.fillStyle = "black";
             A10_canvas.ctx.fill();
             A10_canvas.ctx.closePath();
             //Wimper

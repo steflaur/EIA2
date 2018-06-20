@@ -15,7 +15,7 @@ namespace A10_canvas {
     //function schatzkiste
     export function drawBubbler(_c1: string, _c2: string, _x: number, _y: number): void {
         //Hinten
-        ctx.strokeStyle = b;
+        ctx.strokeStyle = "black";
         ctx.fillStyle = _c2;
         ctx.beginPath();
         ctx.moveTo(_x, _y);

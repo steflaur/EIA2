@@ -14,7 +14,6 @@ var A10_canvas;
     A10_canvas.canvas = document.getElementsByTagName("canvas")[0];
     A10_canvas.ctx = A10_canvas.canvas.getContext("2d");
     console.log("CanvasRendering2d active");
-    A10_canvas.b = "black";
     let fishs1 = [];
     let n1 = 10;
     let fishs2 = [];
@@ -23,7 +22,7 @@ var A10_canvas;
     let n3 = 20;
     function init() {
         console.log("#call init");
-        A10_canvas.ctx.strokeStyle = A10_canvas.b;
+        A10_canvas.ctx.strokeStyle = "black";
         A10_canvas.ctx.strokeRect(0, 0, A10_canvas.canvas.width, A10_canvas.canvas.height);
         //For schleife Fische1
         for (let i = 0; i < n1; i++) {

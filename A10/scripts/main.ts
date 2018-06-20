@@ -16,8 +16,6 @@ namespace A10_canvas {
     export let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
     console.log("CanvasRendering2d active");
 
-    export let b: string = "black";
-
     let fishs1: Fish[] = [];
     let n1: number = 10;
     let fishs2: Fish[] = [];
@@ -31,7 +29,7 @@ namespace A10_canvas {
     function init(): void {
         console.log("#call init");
 
-        ctx.strokeStyle = b;
+        ctx.strokeStyle = "black";
         ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
         //For schleife Fische1
@@ -132,7 +130,6 @@ namespace A10_canvas {
         }
 
         //For schleife Blubber
-
         for (let i: number = 0; i < bubbles.length; i++) {
             bubbles[i].move();
         }
