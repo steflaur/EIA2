@@ -2,7 +2,7 @@
 Aufgabe 10: Canvas Animation
 Name: Laura Vogt
 Matrikel: 256056
-Datum: 24Jun2018
+Datum: 25Jun2018
 
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
@@ -10,8 +10,8 @@ nicht kopiert und auch nicht diktiert.
 */
 
 namespace A10_canvas {
-    
-        //function plant
+
+    //function plant
     export function drawPlant(_c1: string, _c2: string, _c3: string, _x: number, _y: number): void {
 
         //Pflanze mitte
@@ -69,5 +69,5 @@ namespace A10_canvas {
         crc2.closePath();
 
     }
-    
+
 }

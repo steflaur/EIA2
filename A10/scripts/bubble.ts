@@ -2,7 +2,7 @@
 Aufgabe 10: Canvas Animation
 Name: Laura Vogt
 Matrikel: 256056
-Datum: 24Jun2018
+Datum: 25Jun2018
 
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
@@ -12,9 +12,9 @@ nicht kopiert und auch nicht diktiert.
 namespace A10_canvas {
 
     export class Bubble {
-       
+
         x: number;
-        y: number; 
+        y: number;
         speed: number;
         radius: number;
         c1: string;

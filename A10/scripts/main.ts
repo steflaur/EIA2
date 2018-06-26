@@ -2,7 +2,7 @@
 Aufgabe 10: Canvas Animation
 Name: Laura Vogt
 Matrikel: 256056
-Datum: 24Jun2018
+Datum: 25Jun2018
 
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
@@ -91,39 +91,33 @@ namespace A10_canvas {
 
         moveObjects();
         drawObjects();
-        /*
-        moveBubbles();
-        drawBubbles();
-        moveFishes();
-        drawFishes();
-        */
 
     }//close animate
 
     //move
-    function moveObjects():void {
+    function moveObjects(): void {
         console.log("#call moveBubbles");
-            for (let i: number = 0; i < bubbles.length; i++) {
-                bubbles[i].move();
-            }
+        for (let i: number = 0; i < bubbles.length; i++) {
+            bubbles[i].move();
+        }
         console.log("#call moveFish");
-            for (let i: number = 0; i < fishes.length; i++) {
-                fishes[i].move();
-            }
-            
-        }//draw
-    
+        for (let i: number = 0; i < fishes.length; i++) {
+            fishes[i].move();
+        }
+
+    }//draw
+
     //draw
-    function drawObjects():void {
+    function drawObjects(): void {
         console.log("#call drawBubbles");
-            for (let i: number = 0; i < bubbles.length; i++) {
-                bubbles[i].draw();
-            }
+        for (let i: number = 0; i < bubbles.length; i++) {
+            bubbles[i].draw();
+        }
         console.log("#call drawFishes");
-            for (let i: number = 0; i < fishes.length; i++) {
-                fishes[i].draw();
-            }
-            
-        }//move
-    
+        for (let i: number = 0; i < fishes.length; i++) {
+            fishes[i].draw();
+        }
+
+    }//move
+
 }//namespace
