@@ -15,6 +15,7 @@ namespace A10_canvas {
 
         x: number;
         y: number;
+        speed: number;
         c1: string;
         c2: string;
         c3: string;
@@ -24,7 +25,7 @@ namespace A10_canvas {
 
         //declare methods
         move(): void {
-            this.x += -2;
+            this.x -= this.speed;
             if (this.x < 0) {
                 this.x =  crc2.canvas.width + (this.x + 70) ;
             }//close if

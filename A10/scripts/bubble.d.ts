@@ -2,7 +2,8 @@ declare namespace A10_canvas {
     class Bubble {
         x: number;
         y: number;
-        r: number;
+        speed: number;
+        radius: number;
         c1: string;
         c2: string;
         move(): void;

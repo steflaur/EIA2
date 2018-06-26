@@ -18,7 +18,7 @@ var A10_canvas;
     let bubbles = [];
     //Anzahl Fische + Bubbles
     let nF = 10;
-    let nB = 20;
+    let nB = 30;
     //init
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
@@ -37,27 +37,29 @@ var A10_canvas;
         A10_canvas.drawPlant("green", "darkgreen", "brown", 85, 400);
         A10_canvas.drawPlant("green", "darkgreen", "brown", 700, 500);
         imgData = A10_canvas.crc2.getImageData(0, 0, canvas.width, canvas.height);
+        //For-Schleife Blubber
+        for (let i = 0; i < nB; i++) {
+            let bubble = new A10_canvas.Bubble();
+            bubble.x = 370 + Math.random() * 60;
+            bubble.y = Math.random() * 500;
+            bubble.speed = Math.random() * 3 + 1;
+            bubble.radius = Math.random() * 10;
+            bubble.c1 = "skyblue";
+            bubble.c2 = "whitesmoke";
+            bubbles.push(bubble);
+        } //close for
         //For-Schleife Fisch
         for (let i = 0; i < nF; i++) {
             let fish = new A10_canvas.Fish();
             fish.x = Math.random() * A10_canvas.crc2.canvas.width;
             fish.y = 50 + Math.random() * 400;
+            fish.speed = Math.random() * 0.5 + 2;
             fish.c1 = "blue";
             fish.c2 = "darkblue";
             fish.c3 = "yellow";
             fish.c4 = "gold";
             fish.c5 = "whitesmoke";
             fishes.push(fish);
-        } //close for
-        //For-Schleife Blubber
-        for (let i = 0; i < nB; i++) {
-            let bubble = new A10_canvas.Bubble();
-            bubble.x = 120 + Math.random() * 200;
-            bubble.y = 220 - (Math.random() * 260);
-            bubble.r = Math.random() * 10;
-            bubble.c1 = "skyblue";
-            bubble.c2 = "whitesmoke";
-            bubbles.push(bubble);
         } //close for
         animate();
     } //close init
@@ -68,30 +70,34 @@ var A10_canvas;
         A10_canvas.crc2.putImageData(imgData, 0, 0);
         moveObjects();
         drawObjects();
+        /*
+        moveBubbles();
+        drawBubbles();
+        moveFishes();
+        drawFishes();
+        */
     } //close animate
-    //move 
+    //move
     function moveObjects() {
-        console.log("#call move");
-        //For-Schleife Fische
-        for (let i = 0; i < fishes.length; i++) {
-            fishes[i].move();
-        } //close for
-        //For-Schleife Blubber
+        console.log("#call moveBubbles");
         for (let i = 0; i < bubbles.length; i++) {
             bubbles[i].move();
-        } //close for
-    } //close move
+        }
+        console.log("#call moveFish");
+        for (let i = 0; i < fishes.length; i++) {
+            fishes[i].move();
+        }
+    } //draw
     //draw
     function drawObjects() {
-        console.log("#call draw");
-        //For-Schleife Fische 
-        for (let i = 0; i < fishes.length; i++) {
-            fishes[i].move();
-        } //close for
-        //For-Schleife Blubber
+        console.log("#call drawBubbles");
         for (let i = 0; i < bubbles.length; i++) {
-            bubbles[i].move();
-        } //close for
-    } //close draw
+            bubbles[i].draw();
+        }
+        console.log("#call drawFishes");
+        for (let i = 0; i < fishes.length; i++) {
+            fishes[i].draw();
+        }
+    } //move
 })(A10_canvas || (A10_canvas = {})); //namespace
 //# sourceMappingURL=main.js.map

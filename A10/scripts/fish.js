@@ -13,7 +13,7 @@ var A10_canvas;
     class Fish {
         //declare methods
         move() {
-            this.x += -2;
+            this.x -= this.speed;
             if (this.x < 0) {
                 this.x = A10_canvas.crc2.canvas.width + (this.x + 70);
             } //close if

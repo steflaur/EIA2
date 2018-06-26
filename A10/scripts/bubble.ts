@@ -15,15 +15,16 @@ namespace A10_canvas {
        
         x: number;
         y: number; 
-        r: number;
+        speed: number;
+        radius: number;
         c1: string;
         c2: string;
 
         //declare methods
         move(): void {
-            this.y += -2;
+            this.y -= this.speed;
             if (this.y < 0) {
-                this.y = crc2.canvas.height + this.r;
+                this.y = crc2.canvas.height - 80;
             }//if close
         }//move close
 
@@ -31,7 +32,7 @@ namespace A10_canvas {
         draw(): void {
 
             crc2.beginPath();
-            crc2.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+            crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             crc2.strokeStyle = this.c2;
             crc2.stroke();
             crc2.fillStyle = this.c1;

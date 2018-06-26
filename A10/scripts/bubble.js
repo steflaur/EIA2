@@ -13,14 +13,14 @@ var A10_canvas;
     class Bubble {
         //declare methods
         move() {
-            this.y += -2;
+            this.y -= this.speed;
             if (this.y < 0) {
-                this.y = A10_canvas.crc2.canvas.height + this.r;
+                this.y = A10_canvas.crc2.canvas.height - 80;
             } //if close
         } //move close
         draw() {
             A10_canvas.crc2.beginPath();
-            A10_canvas.crc2.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+            A10_canvas.crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             A10_canvas.crc2.strokeStyle = this.c2;
             A10_canvas.crc2.stroke();
             A10_canvas.crc2.fillStyle = this.c1;
