@@ -10,24 +10,24 @@ nicht kopiert und auch nicht diktiert.
 */
 var A10_canvas;
 (function (A10_canvas) {
-    class Bubble {
+    class cBubble {
         //declare methods
         move() {
-            /*
-               this.x += ;
-               this.y += ;
-               */
-        } //move
+            this.y += -2;
+            if (this.y < 0) {
+                this.y = A10_canvas.crc2.canvas.height + this.r;
+            } //if close
+        } //move close
         draw() {
-            A10_canvas.ctx.beginPath();
-            A10_canvas.ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
-            A10_canvas.ctx.strokeStyle = this.c2;
-            A10_canvas.ctx.stroke();
-            A10_canvas.ctx.fillStyle = this.c1;
-            A10_canvas.ctx.fill();
-            A10_canvas.ctx.closePath();
-        } //draw
+            A10_canvas.crc2.beginPath();
+            A10_canvas.crc2.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+            A10_canvas.crc2.strokeStyle = this.c2;
+            A10_canvas.crc2.stroke();
+            A10_canvas.crc2.fillStyle = this.c1;
+            A10_canvas.crc2.fill();
+            A10_canvas.crc2.closePath();
+        } //close draw
     }
-    A10_canvas.Bubble = Bubble; //class
-})(A10_canvas || (A10_canvas = {})); //namespace
+    A10_canvas.cBubble = cBubble; //close class
+})(A10_canvas || (A10_canvas = {})); //close namespace
 //# sourceMappingURL=bubble.js.map

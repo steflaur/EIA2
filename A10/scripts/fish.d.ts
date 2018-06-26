@@ -1,5 +1,5 @@
 declare namespace A10_canvas {
-    class Fish {
+    class cFish {
         x: number;
         y: number;
         c1: string;
