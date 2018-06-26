@@ -11,10 +11,10 @@ nicht kopiert und auch nicht diktiert.
 
 namespace A10_canvas {
 
-    export class cBubble {
-        
+    export class Bubble {
+       
         x: number;
-        y: number;
+        y: number; 
         r: number;
         c1: string;
         c2: string;

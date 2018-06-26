@@ -10,7 +10,7 @@ nicht kopiert und auch nicht diktiert.
 */
 var A10_canvas;
 (function (A10_canvas) {
-    class cBubble {
+    class Bubble {
         //declare methods
         move() {
             this.y += -2;
@@ -28,6 +28,6 @@ var A10_canvas;
             A10_canvas.crc2.closePath();
         } //close draw
     }
-    A10_canvas.cBubble = cBubble; //close class
+    A10_canvas.Bubble = Bubble; //close class
 })(A10_canvas || (A10_canvas = {})); //close namespace
 //# sourceMappingURL=bubble.js.map

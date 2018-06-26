@@ -1,5 +1,5 @@
 declare namespace A10_canvas {
-    class cBubble {
+    class Bubble {
         x: number;
         y: number;
         r: number;

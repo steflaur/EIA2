@@ -11,7 +11,7 @@ nicht kopiert und auch nicht diktiert.
 
 namespace A10_canvas {
 
-    export class cFish {
+    export class Fish {
 
         x: number;
         y: number;

@@ -10,7 +10,7 @@ nicht kopiert und auch nicht diktiert.
 */
 var A10_canvas;
 (function (A10_canvas) {
-    class cFish {
+    class Fish {
         //declare methods
         move() {
             this.x += -2;
@@ -106,6 +106,6 @@ var A10_canvas;
             A10_canvas.crc2.fill();
         } //close draw
     }
-    A10_canvas.cFish = cFish; //close class
+    A10_canvas.Fish = Fish; //close class
 })(A10_canvas || (A10_canvas = {})); //close namespace
 //# sourceMappingURL=fish.js.map

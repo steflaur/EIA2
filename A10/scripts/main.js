@@ -39,7 +39,7 @@ var A10_canvas;
         imgData = A10_canvas.crc2.getImageData(0, 0, canvas.width, canvas.height);
         //For-Schleife Fisch
         for (let i = 0; i < nF; i++) {
-            let fish = new A10_canvas.cFish();
+            let fish = new A10_canvas.Fish();
             fish.x = Math.random() * A10_canvas.crc2.canvas.width;
             fish.y = 50 + Math.random() * 400;
             fish.c1 = "blue";
@@ -51,7 +51,7 @@ var A10_canvas;
         } //close for
         //For-Schleife Blubber
         for (let i = 0; i < nB; i++) {
-            let bubble = new A10_canvas.cBubble();
+            let bubble = new A10_canvas.Bubble();
             bubble.x = 120 + Math.random() * 200;
             bubble.y = 220 - (Math.random() * 260);
             bubble.r = Math.random() * 10;

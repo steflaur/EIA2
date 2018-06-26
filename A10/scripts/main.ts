@@ -18,8 +18,8 @@ namespace A10_canvas {
     console.log("CanvasRendering2d active");
 
     //Arrays Fische + Bubbles
-    let fishes: cFish[] = [];
-    let bubbles: cBubble[] = [];
+    let fishes: Fish[] = [];
+    let bubbles: Bubble[] = [];
 
     //Anzahl Fische + Bubbles
     let nF: number = 10;
@@ -52,7 +52,7 @@ namespace A10_canvas {
 
         //For-Schleife Fisch
         for (let i: number = 0; i < nF; i++) {
-            let fish: cFish = new cFish();
+            let fish: Fish = new Fish();
             fish.x = Math.random() * crc2.canvas.width;
             fish.y = 50 + Math.random() * 400;
             fish.c1 = "blue";
@@ -65,7 +65,7 @@ namespace A10_canvas {
 
         //For-Schleife Blubber
         for (let i: number = 0; i < nB; i++) {
-            let bubble: cBubble = new cBubble();
+            let bubble: Bubble = new Bubble();
             bubble.x = 120 + Math.random() * 200;
             bubble.y = 220 - (Math.random() * 260);
             bubble.r = Math.random() * 10;
