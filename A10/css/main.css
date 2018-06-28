@@ -1,0 +1,39 @@
+/* 
+Aufgabe 10: Canvas Animation
+Name: Laura Vogt
+Matrikel: 256056
+Datum: 25Jun2018
+
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert. 
+*/
+
+/*@CHARSET "UTF-8";
+
+@import
+url('');*/
+
+@import url('https://fonts.googleapis.com/css?family=Cinzel:700');
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	background-color: whitesmoke;
+}
+
+h1 {
+	font-family: 'Cinzel', serif;
+	text-align: center;
+	margin: 1% 0;
+}
+
+canvas {
+  display: block;
+	margin:  1% auto; 
+}
+
