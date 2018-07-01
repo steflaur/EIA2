@@ -23,7 +23,7 @@ namespace A11_canvas {
     //Anzahl Fische + Bubbles
     let nFish: number = 10;
     let nBubble: number = 50;
-    let nFood: number = 1 + Math.floor(Math.random() * 5);
+    
 
     //init
     function init(): void {
@@ -96,6 +96,7 @@ namespace A11_canvas {
     //feed
     function feedTheFish(_event: MouseEvent): void {
         console.log("#call HappyMealTime!!");
+        let nFood: number = 1 + Math.floor(Math.random() * 5);
         let xPosition: number = _event.clientX;
         let yPosition: number = _event.clientY;
 

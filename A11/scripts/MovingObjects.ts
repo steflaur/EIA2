@@ -18,6 +18,7 @@ namespace A11_canvas {
         ySpeed: number;
         Start: number;
         End: number;
+        
         constructor() {
 
         }

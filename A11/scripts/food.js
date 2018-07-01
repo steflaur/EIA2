@@ -14,7 +14,7 @@ var A11_canvas;
         constructor(xPosition, yPosition) {
             super();
             this.setPositions(xPosition, yPosition);
-            this.setBorders;
+            this.setBorders();
             this.setStyle();
         }
         //set Position, Borders & Style

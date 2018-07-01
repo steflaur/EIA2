@@ -18,7 +18,6 @@ var A11_canvas;
     //Anzahl Fische + Bubbles
     let nFish = 10;
     let nBubble = 50;
-    let nFood = 1 + Math.floor(Math.random() * 5);
     //init
     function init() {
         console.log("#call init");
@@ -69,6 +68,7 @@ var A11_canvas;
     //feed
     function feedTheFish(_event) {
         console.log("#call HappyMealTime!!");
+        let nFood = 1 + Math.floor(Math.random() * 5);
         let xPosition = _event.clientX;
         let yPosition = _event.clientY;
         //ausgleich der veränderten werte durch cssnBefehle

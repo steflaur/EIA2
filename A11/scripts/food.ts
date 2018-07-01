@@ -19,7 +19,7 @@ namespace A11_canvas {
         constructor(xPosition: number, yPosition: number) {
             super();
             this.setPositions(xPosition, yPosition);
-            this.setBorders;
+            this.setBorders();
             this.setStyle();
         }
 
