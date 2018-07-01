@@ -15,26 +15,33 @@ var A11_canvas;
         constructor() {
             super();
             this.setPosition();
-            this.setStyle();
+            this.setBorders();
+            this.setColors();
         }
-        //set Position & Style
+        //set Position, Borders & Colors
         setPosition() {
             this.x = Math.random() * A11_canvas.crc2.canvas.width;
             this.y = 50 + Math.random() * 400;
-            this.speed = 0.5 + Math.random() * 1.5;
+            this.xSpeed = 0.5 + Math.random() * 1.5;
+            this.ySpeed = 0;
         }
-        setStyle() {
+        setBorders() {
+            //entlang der x-Achse
+            this.Start = A11_canvas.crc2.canvas.width + (this.x + 70);
+            this.End = (0 - 60);
+        }
+        setColors() {
             this.color1 = "blue";
             this.color2 = "darkblue";
             this.color3 = "yellow";
             this.color4 = "gold";
             this.color5 = "whitesmoke";
-        }
+        } //close Position, Borders & Color
         //declare methods
         move() {
-            this.x -= this.speed;
-            if (this.x < (0 - 60)) {
-                this.x = A11_canvas.crc2.canvas.width + (this.x + 70);
+            this.x -= this.xSpeed;
+            if (this.x < this.End) {
+                this.x = this.Start;
             } //close if
         } //close move
         //draw

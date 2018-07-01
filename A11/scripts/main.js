@@ -18,6 +18,7 @@ var A11_canvas;
     //Anzahl Fische + Bubbles
     let nFish = 10;
     let nBubble = 50;
+    let nFood = 1 + Math.floor(Math.random() * 5);
     //init
     function init() {
         console.log("#call init");
@@ -73,12 +74,10 @@ var A11_canvas;
         //ausgleich der veränderten werte durch cssnBefehle
         xPosition -= 310;
         yPosition -= 70;
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < nFood; i++) {
             let food = new A11_canvas.Food(xPosition, yPosition);
             movingObjects.push(food);
-            xPosition += Math.random() * 20;
-            xPosition -= Math.random() * 20;
-            yPosition += Math.random() * 10;
+            console.log("push food");
         }
     } //feed
 })(A11_canvas || (A11_canvas = {})); //namespace

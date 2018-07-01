@@ -20,32 +20,41 @@ namespace A11_canvas {
         constructor() {
             super();
             this.setPosition();
+            this.setBorders();
             this.setStyle();
         }
 
-        //set Position & Style
+        //set Position, Borders & Style
         setPosition(): void {
             this.x = 370 + Math.random() * 60;
             this.y = Math.random() * 500;
-            this.speed = 0.5 + Math.random() * 0.5;
+            this.ySpeed = 0.5 + Math.random() * 0.5;
+            this.xSpeed = 0;
+        }
+
+        setBorders(): void {
+            //entlang y-Achse
+            this.Start = crc2.canvas.height - 80;
+            this.End = 0;
         }
 
         setStyle(): void {
             this.radius = 0.5 + Math.random() * 8;
             this.color1 = "skyblue";
             this.color2 = "whitesmoke";
-        }
+        }//close Position, Borders & Style
 
         //declare methods
         move(): void {
-            this.x += 0;
-            this.y -= this.speed;
-            if (this.y < 0) {
-                this.y = crc2.canvas.height - 80;
+            this.x += this.xSpeed;
+            this.y -= this.ySpeed;
+
+            if (this.y < this.End) {
+                this.y = this.Start;
             }//if close
         }//move close
 
-
+        //draw
         draw(): void {
             crc2.beginPath();
             crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);

@@ -23,6 +23,7 @@ namespace A11_canvas {
     //Anzahl Fische + Bubbles
     let nFish: number = 10;
     let nBubble: number = 50;
+    let nFood: number = 1 + Math.floor(Math.random() * 5);
 
     //init
     function init(): void {
@@ -97,17 +98,15 @@ namespace A11_canvas {
         console.log("#call HappyMealTime!!");
         let xPosition: number = _event.clientX;
         let yPosition: number = _event.clientY;
-        
+
         //ausgleich der veränderten werte durch cssnBefehle
         xPosition -= 310;
         yPosition -= 70;
 
-        for (let i: number = 0; i < 4; i++) {
+        for (let i: number = 0; i < nFood; i++) {
             let food: Food = new Food(xPosition, yPosition);
             movingObjects.push(food);
-            xPosition += Math.random() * 20;
-            xPosition -= Math.random() * 20;
-            yPosition += Math.random() * 10;
+            console.log("push food");
         }
     }//feed
 

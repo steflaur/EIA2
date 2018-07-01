@@ -14,8 +14,10 @@ namespace A11_canvas {
     export class MovingObjects {
         x: number;
         y: number;
-        speed: number;
-
+        xSpeed: number;
+        ySpeed: number;
+        Start: number;
+        End: number;
         constructor() {
 
         }

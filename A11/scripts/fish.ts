@@ -23,33 +23,39 @@ namespace A11_canvas {
         constructor() {
             super();
             this.setPosition();
-            this.setStyle();
+            this.setBorders();
+            this.setColors();
         }
 
-        //set Position & Style
+        //set Position, Borders & Colors
         setPosition(): void {
             this.x = Math.random() * crc2.canvas.width;
             this.y = 50 + Math.random() * 400;
-            this.speed = 0.5 + Math.random() * 1.5;
+            this.xSpeed = 0.5 + Math.random() * 1.5;
+            this.ySpeed = 0;
         }
 
-        setStyle(): void {
+        setBorders(): void {
+            //entlang der x-Achse
+            this.Start = crc2.canvas.width + (this.x + 70);
+            this.End = (0 - 60);
+        }
+
+        setColors(): void {
             this.color1 = "blue";
             this.color2 = "darkblue";
             this.color3 = "yellow";
             this.color4 = "gold";
             this.color5 = "whitesmoke";
-        }
+        }//close Position, Borders & Color
 
         //declare methods
         move(): void {
-            this.x -= this.speed;
-            if (this.x < (0 - 60)) {
-                this.x = crc2.canvas.width + (this.x + 70);
+            this.x -= this.xSpeed;
+            if (this.x < this.End) {
+                this.x = this.Start;
             }//close if
         }//close move
-
-
 
         //draw
         draw(): void {

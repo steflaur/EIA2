@@ -15,23 +15,26 @@ namespace A11_canvas {
 
         radius: number;
         color: string;
-        stop: number;
 
         constructor(xPosition: number, yPosition: number) {
             super();
-            this.setPosition(xPosition, yPosition);
+            this.setPositions(xPosition, yPosition);
+            this.setBorders;
             this.setStyle();
-
         }
 
-        //set Position & Style
-        setPosition(xPosition: number, yPosition: number): void {
-
+        //set Position, Borders & Style
+        setPositions(xPosition: number, yPosition: number): void {
             this.x = xPosition;
             this.y = yPosition;
-            this.speed = 1;
-            //this.drift = (0-0.2) + Math.random() * 0.2;
-            this.stop = 580 + Math.random() * 15;
+            this.ySpeed = 0.4 + Math.random() * 0.3;
+            this.xSpeed = (0 - 0.2) + Math.random() * 0.1;
+        }
+
+        setBorders(): void {
+            //beschreibt abschnitt, in dem es nurnoch ySpeed gibt
+            this.Start = 270 + Math.random() * 50;
+            this.End = 580 + Math.random() * 15;
         }
 
         setStyle(): void {
@@ -40,8 +43,9 @@ namespace A11_canvas {
         }
 
         setColor(): void {
-            let colorSet: number = Math.floor(Math.random() * 6);
-            switch (colorSet) {
+            let max: number = 6;
+            let randomColor: number = Math.floor(Math.random() * max);
+            switch (randomColor) {
                 case 0:
                     this.color = "Bisque";
                     break;
@@ -61,17 +65,21 @@ namespace A11_canvas {
                     this.color = "DarkGoldenRod";
                     break;
             }//switch
-        }
+        }//close Position, Borders & Style
 
         //move
         move(): void {
-            this.x += 0.2;
-            this.y += this.speed;
+            this.x += this.xSpeed;
+            this.y += this.ySpeed;
 
-            if (this.y > this.stop) {
-                this.y = this.stop;
-                this.x -= 0.2;
+            //Futter soll nichtmehr weiter driften
+            if (this.y > this.Start) {
+                this.x -= this.xSpeed;
+            }
 
+            //Futter soll liegen bleiben
+            if (this.y > this.End) {
+                this.y = this.End;
             }
         }//move close
 

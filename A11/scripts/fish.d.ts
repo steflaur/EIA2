@@ -7,7 +7,8 @@ declare namespace A11_canvas {
         color5: string;
         constructor();
         setPosition(): void;
-        setStyle(): void;
+        setBorders(): void;
+        setColors(): void;
         move(): void;
         draw(): void;
     }

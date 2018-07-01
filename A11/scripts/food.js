@@ -13,24 +13,30 @@ var A11_canvas;
     class Food extends A11_canvas.MovingObjects {
         constructor(xPosition, yPosition) {
             super();
-            this.setPosition(xPosition, yPosition);
+            this.setPositions(xPosition, yPosition);
+            this.setBorders;
             this.setStyle();
         }
-        //set Position & Style
-        setPosition(xPosition, yPosition) {
+        //set Position, Borders & Style
+        setPositions(xPosition, yPosition) {
             this.x = xPosition;
             this.y = yPosition;
-            this.speed = 1;
-            //this.drift = (0-0.2) + Math.random() * 0.2;
-            this.stop = 580 + Math.random() * 15;
+            this.ySpeed = 0.4 + Math.random() * 0.3;
+            this.xSpeed = (0 - 0.2) + Math.random() * 0.1;
+        }
+        setBorders() {
+            //beschreibt abschnitt, in dem es nurnoch ySpeed gibt
+            this.Start = 270 + Math.random() * 50;
+            this.End = 580 + Math.random() * 15;
         }
         setStyle() {
             this.setColor();
             this.radius = 2 + Math.random() * 4;
         }
         setColor() {
-            let colorSet = Math.floor(Math.random() * 6);
-            switch (colorSet) {
+            let max = 6;
+            let randomColor = Math.floor(Math.random() * max);
+            switch (randomColor) {
                 case 0:
                     this.color = "Bisque";
                     break;
@@ -50,14 +56,18 @@ var A11_canvas;
                     this.color = "DarkGoldenRod";
                     break;
             } //switch
-        }
+        } //close Position, Borders & Style
         //move
         move() {
-            this.x += 0.2;
-            this.y += this.speed;
-            if (this.y > this.stop) {
-                this.y = this.stop;
-                this.x -= 0.2;
+            this.x += this.xSpeed;
+            this.y += this.ySpeed;
+            //Futter soll nichtmehr weiter driften
+            if (this.y > this.Start) {
+                this.x -= this.xSpeed;
+            }
+            //Futter soll liegen bleiben
+            if (this.y > this.End) {
+                this.y = this.End;
             }
         } //move close
         //draw
