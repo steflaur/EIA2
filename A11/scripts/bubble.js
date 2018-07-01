@@ -21,6 +21,8 @@ var A11_canvas;
         setPosition() {
             this.x = 370 + Math.random() * 60;
             this.y = Math.random() * 500;
+        }
+        setSpeed() {
             this.ySpeed = 0.5 + Math.random() * 0.5;
             this.xSpeed = 0;
         }

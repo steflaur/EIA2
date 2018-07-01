@@ -23,6 +23,7 @@ namespace A11_canvas {
         constructor() {
             super();
             this.setPosition();
+            this.setSpeed();
             this.setBorders();
             this.setColors();
         }
@@ -31,6 +32,9 @@ namespace A11_canvas {
         setPosition(): void {
             this.x = Math.random() * crc2.canvas.width;
             this.y = 50 + Math.random() * 400;
+        }
+
+        setSpeed(): void {
             this.xSpeed = 0.5 + Math.random() * 1.5;
             this.ySpeed = 0;
         }

@@ -14,6 +14,7 @@ var A11_canvas;
         constructor(xPosition, yPosition) {
             super();
             this.setPositions(xPosition, yPosition);
+            this.setSpeed();
             this.setBorders();
             this.setStyle();
         }
@@ -21,6 +22,8 @@ var A11_canvas;
         setPositions(xPosition, yPosition) {
             this.x = xPosition;
             this.y = yPosition;
+        }
+        setSpeed() {
             this.ySpeed = 0.4 + Math.random() * 0.3;
             this.xSpeed = (0 - 0.2) + Math.random() * 0.1;
         }

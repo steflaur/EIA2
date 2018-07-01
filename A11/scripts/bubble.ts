@@ -28,10 +28,13 @@ namespace A11_canvas {
         setPosition(): void {
             this.x = 370 + Math.random() * 60;
             this.y = Math.random() * 500;
-            this.ySpeed = 0.5 + Math.random() * 0.5;
-            this.xSpeed = 0;
         }
 
+        setSpeed(): void {
+            this.ySpeed = 0.5 + Math.random() * 0.5;
+            this.xSpeed = 0; 
+        }
+        
         setBorders(): void {
             //entlang y-Achse
             this.Start = crc2.canvas.height - 80;

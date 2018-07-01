@@ -4,6 +4,7 @@ declare namespace A11_canvas {
         color: string;
         constructor(xPosition: number, yPosition: number);
         setPositions(xPosition: number, yPosition: number): void;
+        setSpeed(): void;
         setBorders(): void;
         setStyle(): void;
         setColor(): void;

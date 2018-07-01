@@ -19,6 +19,7 @@ namespace A11_canvas {
         constructor(xPosition: number, yPosition: number) {
             super();
             this.setPositions(xPosition, yPosition);
+            this.setSpeed();
             this.setBorders();
             this.setStyle();
         }
@@ -27,6 +28,9 @@ namespace A11_canvas {
         setPositions(xPosition: number, yPosition: number): void {
             this.x = xPosition;
             this.y = yPosition;
+        }
+
+        setSpeed(): void {
             this.ySpeed = 0.4 + Math.random() * 0.3;
             this.xSpeed = (0 - 0.2) + Math.random() * 0.1;
         }

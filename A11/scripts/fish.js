@@ -15,6 +15,7 @@ var A11_canvas;
         constructor() {
             super();
             this.setPosition();
+            this.setSpeed();
             this.setBorders();
             this.setColors();
         }
@@ -22,6 +23,8 @@ var A11_canvas;
         setPosition() {
             this.x = Math.random() * A11_canvas.crc2.canvas.width;
             this.y = 50 + Math.random() * 400;
+        }
+        setSpeed() {
             this.xSpeed = 0.5 + Math.random() * 1.5;
             this.ySpeed = 0;
         }
