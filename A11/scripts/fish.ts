@@ -1,8 +1,8 @@
 /* 
-Aufgabe 10: Canvas Animation
+Aufgabe 11: Canvas Inheritance
 Name: Laura Vogt
 Matrikel: 256056
-Datum: 25Jun2018
+Datum: 1Jul2018
 
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
@@ -11,10 +11,8 @@ nicht kopiert und auch nicht diktiert.
 
 namespace A11_canvas {
 
-    export class Fish {
+    export class Fish extends MovingObjects {
 
-        x: number;
-        y: number;
         speed: number;
         c1: string;
         c2: string;
@@ -22,6 +20,27 @@ namespace A11_canvas {
         c4: string;
         c5: string;
 
+        //constructor
+        constructor() {
+            super();
+            this.setPosition();
+            this.setStyle();
+        }
+
+        //set Position & Style
+        setPosition(): void {
+            this.x = Math.random() * crc2.canvas.width;
+            this.y = 50 + Math.random() * 400;
+            this.speed = Math.random() * 0.5 + 2;
+        }
+        
+        setStyle(): void {
+            this.c1 = "blue";
+            this.c2 = "darkblue";
+            this.c3 = "yellow";
+            this.c4 = "gold";
+            this.c5 = "whitesmoke";
+        }
 
         //declare methods
         move(): void {
@@ -32,6 +51,8 @@ namespace A11_canvas {
         }//close move
 
 
+
+        //draw
         draw(): void {
 
             //Fisch

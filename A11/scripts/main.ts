@@ -1,8 +1,8 @@
 /* 
-Aufgabe 10: Canvas Animation
+Aufgabe 11: Canvas Inheritance
 Name: Laura Vogt
 Matrikel: 256056
-Datum: 25Jun2018
+Datum: 1Jul2018
 
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
@@ -18,8 +18,7 @@ namespace A11_canvas {
     console.log("CanvasRendering2d active");
 
     //Arrays Fische + Bubbles
-    let fishes: Fish[] = [];
-    let bubbles: Bubble[] = [];
+    let movingObjects: MovingObjects[] = [];
 
     //Anzahl Fische + Bubbles
     let nF: number = 10;
@@ -27,59 +26,40 @@ namespace A11_canvas {
 
     //init
     function init(): void {
+        console.log("#call init");
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-        console.log("#call init");
 
-        //Rahmen
-        crc2.strokeStyle = "black";
-        crc2.strokeRect(0, 0, canvas.width, canvas.height);
+        canvas.addEventListener("click", feedTheFish);
 
-        //Wasser
-        drawWater("lightblue", "skyblue", canvas.width, canvas.height, 10, 400);
+        drawStaticBackground(canvas);
 
-        //Boden
-        drawBottom("burlywood", "peru", 700, 0, 400);
-
-        //Schatzkiste
-        drawBubbler("saddlebrown", "#5a2d0c", 350, 520);
-
-        //Pflanzen
-        drawPlant("green", "darkgreen", "brown", 85, 400);
-        drawPlant("green", "darkgreen", "brown", 700, 500);
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
 
-        //For-Schleife Blubber
+        //for-Schleife Blubbles
         for (let i: number = 0; i < nB; i++) {
             let bubble: Bubble = new Bubble();
-            bubble.x = 370 + Math.random() * 60;
-            bubble.y = Math.random() * 500;
-            bubble.speed = Math.random() * 3 + 1;
-            bubble.radius = Math.random() * 10;
-            bubble.c1 = "skyblue";
-            bubble.c2 = "whitesmoke";
-            bubbles.push(bubble);
+            
+            movingObjects.push(bubble);
+
+            console.log("push Bubbles");
         }//close for
 
-        //For-Schleife Fisch
+        //for-Schleife Fisch
         for (let i: number = 0; i < nF; i++) {
             let fish: Fish = new Fish();
-            fish.x = Math.random() * crc2.canvas.width;
-            fish.y = 50 + Math.random() * 400;
-            fish.speed = Math.random() * 0.5 + 2;
-            fish.c1 = "blue";
-            fish.c2 = "darkblue";
-            fish.c3 = "yellow";
-            fish.c4 = "gold";
-            fish.c5 = "whitesmoke";
-            fishes.push(fish);
+            
+            movingObjects.push(fish);
+
+            console.log("push fish");
         }//close for
 
         animate();
 
     }//close init
+
 
     //animate
     function animate(): void {
@@ -87,6 +67,7 @@ namespace A11_canvas {
 
         window.setTimeout(animate, 10);
 
+        crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.putImageData(imgData, 0, 0);
 
         moveObjects();
@@ -94,30 +75,40 @@ namespace A11_canvas {
 
     }//close animate
 
+
     //move
     function moveObjects(): void {
-        console.log("#call moveBubbles");
-        for (let i: number = 0; i < bubbles.length; i++) {
-            bubbles[i].move();
+        console.log("#call moveMovingObjects");
+        for (let i: number = 0; i < movingObjects.length; i++) {
+            movingObjects[i].move();
         }
-        console.log("#call moveFish");
-        for (let i: number = 0; i < fishes.length; i++) {
-            fishes[i].move();
+
+    }//move
+
+
+    //draw
+    function drawObjects(): void {
+        console.log("#call drawMovingObjects");
+        for (let i: number = 0; i < movingObjects.length; i++) {
+            movingObjects[i].draw();
         }
 
     }//draw
 
-    //draw
-    function drawObjects(): void {
-        console.log("#call drawBubbles");
-        for (let i: number = 0; i < bubbles.length; i++) {
-            bubbles[i].draw();
-        }
-        console.log("#call drawFishes");
-        for (let i: number = 0; i < fishes.length; i++) {
-            fishes[i].draw();
-        }
+    //feed
+    function feedTheFish(_event: MouseEvent): void {
 
-    }//move
+        let newPositionX: number = _event.clientX;
+        let newPositionY: number = _event.clientY;
+
+
+        for (let i: number = 0; i < 4; i++) {
+            let food: Food = new Food(newPositionX, newPositionY);
+            movingObjects.push(food);
+            newPositionX += Math.random() * 60;
+            newPositionX -= Math.random() * 60;
+            newPositionY += Math.random() * 30;
+        }
+    }//feed
 
 }//namespace

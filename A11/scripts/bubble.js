@@ -1,8 +1,8 @@
 /*
-Aufgabe 10: Canvas Animation
+Aufgabe 11: Canvas Inheritance
 Name: Laura Vogt
 Matrikel: 256056
-Datum: 25Jun2018
+Datum: 1Jul2018
 
 Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
@@ -10,9 +10,26 @@ nicht kopiert und auch nicht diktiert.
 */
 var A11_canvas;
 (function (A11_canvas) {
-    class Bubble {
+    class Bubble extends A11_canvas.MovingObjects {
+        constructor() {
+            super();
+            this.setPosition();
+            this.setStyle();
+        }
+        //set Position & Style
+        setPosition() {
+            this.x = 370 + Math.random() * 60;
+            this.y = Math.random() * 500;
+            this.speed = Math.random() * 3 + 1;
+        }
+        setStyle() {
+            this.radius = Math.random() * 10;
+            this.c1 = "skyblue";
+            this.c2 = "whitesmoke";
+        }
         //declare methods
         move() {
+            this.x += 0;
             this.y -= this.speed;
             if (this.y < 0) {
                 this.y = A11_canvas.crc2.canvas.height - 80;
