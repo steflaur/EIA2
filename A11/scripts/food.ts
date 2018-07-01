@@ -32,7 +32,7 @@ namespace A11_canvas {
 
         setSpeed(): void {
             this.ySpeed = 0.4 + Math.random() * 0.3;
-            this.xSpeed = (0 - 0.2) + Math.random() * 0.1;
+            this.xSpeed = (0 - 0.2) + Math.random() * 0.2;
         }
 
         setBorders(): void {

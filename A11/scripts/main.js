@@ -16,7 +16,7 @@ var A11_canvas;
     //Array der movingObjects
     let movingObjects = [];
     //Anzahl Fische + Bubbles
-    let nFish = 10;
+    let nFish = 15;
     let nBubble = 50;
     //init
     function init() {
@@ -24,7 +24,7 @@ var A11_canvas;
         let canvas = document.getElementsByTagName("canvas")[0];
         A11_canvas.crc2 = canvas.getContext("2d");
         //EventListener 2feedTheFish
-        canvas.addEventListener("click", feedTheFish);
+        canvas.addEventListener("click", insertObject);
         //function staticObjects
         A11_canvas.drawStaticBackground(canvas);
         imgData = A11_canvas.crc2.getImageData(0, 0, canvas.width, canvas.height);
@@ -65,20 +65,39 @@ var A11_canvas;
             movingObjects[i].draw();
         }
     } //draw
-    //feed
-    function feedTheFish(_event) {
-        console.log("#call HappyMealTime!!");
-        let nFood = 1 + Math.floor(Math.random() * 5);
+    //insert
+    function insertObject(_event) {
+        console.log("#call It's Happy Time!!");
         let xPosition = _event.clientX;
         let yPosition = _event.clientY;
-        //ausgleich der veränderten werte durch cssnBefehle
+        //ausgleich der veränderten werte durch css-Befehle
         xPosition -= 310;
         yPosition -= 70;
-        for (let i = 0; i < nFood; i++) {
+        let border = 380;
+        if (yPosition < border) {
+            happyMealTime(xPosition, yPosition);
+        }
+        else {
+            happyBlubberTime(xPosition, yPosition);
+        }
+    } //insert
+    function happyMealTime(xPosition, yPosition) {
+        console.log("#call *It's Meal Time*");
+        let n = 1 + Math.floor(Math.random() * 5);
+        for (let i = 0; i < n; i++) {
             let food = new A11_canvas.Food(xPosition, yPosition);
             movingObjects.push(food);
             console.log("push food");
         }
-    } //feed
+    } //Food
+    function happyBlubberTime(xPosition, yPosition) {
+        console.log("#call *It's Blubber Time*");
+        let n = 1 + Math.floor(Math.random() * 10);
+        for (let i = 0; i < n; i++) {
+            let blubber = new A11_canvas.Blubber(xPosition, yPosition);
+            movingObjects.push(blubber);
+            console.log("push blubber");
+        }
+    } //blubber
 })(A11_canvas || (A11_canvas = {})); //namespace
 //# sourceMappingURL=main.js.map

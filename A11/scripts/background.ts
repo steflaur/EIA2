@@ -13,6 +13,7 @@ namespace A11_canvas {
 
     //static function
     export function drawStaticBackground(_canvas: HTMLCanvasElement): void {
+        
         //Rahmen
         crc2.strokeStyle = "black";
         crc2.strokeRect(0, 0, _canvas.width, _canvas.height);

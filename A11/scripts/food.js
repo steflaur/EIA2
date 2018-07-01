@@ -25,7 +25,7 @@ var A11_canvas;
         }
         setSpeed() {
             this.ySpeed = 0.4 + Math.random() * 0.3;
-            this.xSpeed = (0 - 0.2) + Math.random() * 0.1;
+            this.xSpeed = (0 - 0.2) + Math.random() * 0.2;
         }
         setBorders() {
             //beschreibt abschnitt, in dem es nurnoch ySpeed gibt

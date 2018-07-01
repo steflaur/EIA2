@@ -21,9 +21,9 @@ namespace A11_canvas {
     let movingObjects: MovingObjects[] = [];
 
     //Anzahl Fische + Bubbles
-    let nFish: number = 10;
+    let nFish: number = 15;
     let nBubble: number = 50;
-    
+
 
     //init
     function init(): void {
@@ -32,7 +32,7 @@ namespace A11_canvas {
         crc2 = canvas.getContext("2d");
 
         //EventListener 2feedTheFish
-        canvas.addEventListener("click", feedTheFish);
+        canvas.addEventListener("click", insertObject);
 
         //function staticObjects
         drawStaticBackground(canvas);
@@ -73,42 +73,61 @@ namespace A11_canvas {
 
     }//close animate
 
+        //move
+        function moveObjects(): void {
+            console.log("#call moveMovingObjects");
+            for (let i: number = 0; i < movingObjects.length; i++) {
+                movingObjects[i].move();
+            }
+        }//move
+    
+        //draw
+        function drawObjects(): void {
+            console.log("#call drawMovingObjects");
+            for (let i: number = 0; i < movingObjects.length; i++) {
+                movingObjects[i].draw();
+            }
+        }//draw
 
-    //move
-    function moveObjects(): void {
-        console.log("#call moveMovingObjects");
-        for (let i: number = 0; i < movingObjects.length; i++) {
-            movingObjects[i].move();
-        }
-
-    }//move
-
-
-    //draw
-    function drawObjects(): void {
-        console.log("#call drawMovingObjects");
-        for (let i: number = 0; i < movingObjects.length; i++) {
-            movingObjects[i].draw();
-        }
-
-    }//draw
-
-    //feed
-    function feedTheFish(_event: MouseEvent): void {
-        console.log("#call HappyMealTime!!");
-        let nFood: number = 1 + Math.floor(Math.random() * 5);
+    //insert
+    function insertObject(_event: MouseEvent): void {
+        console.log("#call It's Happy Time!!");
         let xPosition: number = _event.clientX;
         let yPosition: number = _event.clientY;
-
-        //ausgleich der veränderten werte durch cssnBefehle
+        //ausgleich der veränderten werte durch css-Befehle
         xPosition -= 310;
         yPosition -= 70;
 
-        for (let i: number = 0; i < nFood; i++) {
-            let food: Food = new Food(xPosition, yPosition);
-            movingObjects.push(food);
-            console.log("push food");
+        let border: number = 380;
+        if (yPosition < border) {
+            happyMealTime(xPosition, yPosition);
         }
-    }//feed
+        else {
+            happyBlubberTime(xPosition, yPosition);
+        }
+    }//insert
+
+        function happyMealTime(xPosition: number, yPosition: number): void {
+            console.log("#call *It's Meal Time*");
+            let n: number = 1 + Math.floor(Math.random() * 5);
+    
+            for (let i: number = 0; i < n; i++) {
+                let food: Food = new Food(xPosition, yPosition);
+                movingObjects.push(food);
+                console.log("push food");
+            }
+        }//Food
+    
+        function happyBlubberTime(xPosition: number, yPosition: number): void {
+            console.log("#call *It's Blubber Time*");
+            let n: number = 1 + Math.floor(Math.random() * 10);
+    
+            for (let i: number = 0; i < n; i++) {
+                let blubber: Blubber = new Blubber(xPosition, yPosition);
+                movingObjects.push(blubber);
+                console.log("push blubber");
+            }
+        }//blubber
+
 
 }//namespace
