@@ -3,8 +3,8 @@ declare namespace A11_canvas {
         radius: number;
         color: string;
         stop: number;
-        constructor(newPositionX: number, newPositionY: number);
-        setPosition(newPositionX: number, newPositionY: number): void;
+        constructor(xPosition: number, yPosition: number);
+        setPosition(xPosition: number, yPosition: number): void;
         setStyle(): void;
         setColor(): void;
         move(): void;

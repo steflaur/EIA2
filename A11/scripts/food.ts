@@ -17,50 +17,63 @@ namespace A11_canvas {
         color: string;
         stop: number;
 
-
-        constructor(newPositionX: number, newPositionY: number) {
+        constructor(xPosition: number, yPosition: number) {
             super();
-            this.setPosition(newPositionX, newPositionY);
+            this.setPosition(xPosition, yPosition);
             this.setStyle();
 
         }
 
         //set Position & Style
-        setPosition(newPositionX: number, newPositionY: number): void {
+        setPosition(xPosition: number, yPosition: number): void {
 
-            this.x = newPositionX;
-            this.y = newPositionY;
-            this.stop = Math.random() * (690 - 640) + 640;
+            this.x = xPosition;
+            this.y = yPosition;
+            this.speed = 1;
+            //this.drift = (0-0.2) + Math.random() * 0.2;
+            this.stop = 580 + Math.random() * 15;
         }
 
         setStyle(): void {
             this.setColor();
-            this.radius = 4;
+            this.radius = 2 + Math.random() * 4;
         }
 
         setColor(): void {
-            let c: number = Math.floor(Math.random() * 3);
-            switch (c) {
+            let colorSet: number = Math.floor(Math.random() * 6);
+            switch (colorSet) {
                 case 0:
-                    this.color = "orange";
+                    this.color = "Bisque";
                     break;
                 case 1:
-                    this.color = "green";
+                    this.color = "DarkOliveGreen";
                     break;
                 case 2:
-                    this.color = "red";
-            }
+                    this.color = "Chocolate";
+                    break;
+                case 3:
+                    this.color = "DarkKhaki";
+                    break;
+                case 4:
+                    this.color = "IndianRed";
+                    break;
+                case 5:
+                    this.color = "DarkGoldenRod";
+                    break;
+            }//switch
         }
 
         //move
         move(): void {
-            this.x += 0;
-            this.y += 1;
+            this.x += 0.2;
+            this.y += this.speed;
 
             if (this.y > this.stop) {
                 this.y = this.stop;
+                this.x -= 0.2;
+
             }
-        }
+        }//move close
 
         //draw
         draw(): void {
@@ -69,12 +82,7 @@ namespace A11_canvas {
             crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true);
             crc2.closePath();
             crc2.fill();
+        }//draw close
 
-            crc2.strokeStyle = "transparent";
-            crc2.stroke();
-        }
-
-
-    }
-
+    }//close class
 }//close namespace

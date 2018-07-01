@@ -20,12 +20,12 @@ var A11_canvas;
         setPosition() {
             this.x = 370 + Math.random() * 60;
             this.y = Math.random() * 500;
-            this.speed = Math.random() * 3 + 1;
+            this.speed = 0.5 + Math.random() * 0.5;
         }
         setStyle() {
-            this.radius = Math.random() * 10;
-            this.c1 = "skyblue";
-            this.c2 = "whitesmoke";
+            this.radius = 0.5 + Math.random() * 8;
+            this.color1 = "skyblue";
+            this.color2 = "whitesmoke";
         }
         //declare methods
         move() {
@@ -38,9 +38,9 @@ var A11_canvas;
         draw() {
             A11_canvas.crc2.beginPath();
             A11_canvas.crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-            A11_canvas.crc2.strokeStyle = this.c2;
+            A11_canvas.crc2.strokeStyle = this.color2;
             A11_canvas.crc2.stroke();
-            A11_canvas.crc2.fillStyle = this.c1;
+            A11_canvas.crc2.fillStyle = this.color1;
             A11_canvas.crc2.fill();
             A11_canvas.crc2.closePath();
         } //close draw

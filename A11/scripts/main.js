@@ -13,27 +13,29 @@ var A11_canvas;
     window.addEventListener("load", init);
     let imgData;
     console.log("CanvasRendering2d active");
-    //Arrays Fische + Bubbles
+    //Array der movingObjects
     let movingObjects = [];
     //Anzahl Fische + Bubbles
-    let nF = 10;
-    let nB = 30;
+    let nFish = 10;
+    let nBubble = 50;
     //init
     function init() {
         console.log("#call init");
         let canvas = document.getElementsByTagName("canvas")[0];
         A11_canvas.crc2 = canvas.getContext("2d");
+        //EventListener 2feedTheFish
         canvas.addEventListener("click", feedTheFish);
+        //function staticObjects
         A11_canvas.drawStaticBackground(canvas);
         imgData = A11_canvas.crc2.getImageData(0, 0, canvas.width, canvas.height);
         //for-Schleife Blubbles
-        for (let i = 0; i < nB; i++) {
+        for (let i = 0; i < nBubble; i++) {
             let bubble = new A11_canvas.Bubble();
             movingObjects.push(bubble);
             console.log("push Bubbles");
         } //close for
-        //for-Schleife Fisch
-        for (let i = 0; i < nF; i++) {
+        //for-Schleife Fische
+        for (let i = 0; i < nFish; i++) {
             let fish = new A11_canvas.Fish();
             movingObjects.push(fish);
             console.log("push fish");
@@ -65,14 +67,17 @@ var A11_canvas;
     } //draw
     //feed
     function feedTheFish(_event) {
-        let newPositionX = _event.clientX;
-        let newPositionY = _event.clientY;
+        console.log("#call HappyMealTime!!");
+        let xPosition = _event.clientX;
+        xPosition -= 310;
+        let yPosition = _event.clientY;
+        yPosition -= 70;
         for (let i = 0; i < 4; i++) {
-            let food = new A11_canvas.Food(newPositionX, newPositionY);
+            let food = new A11_canvas.Food(xPosition, yPosition);
             movingObjects.push(food);
-            newPositionX += Math.random() * 60;
-            newPositionX -= Math.random() * 60;
-            newPositionY += Math.random() * 30;
+            xPosition += Math.random() * 20;
+            xPosition -= Math.random() * 20;
+            yPosition += Math.random() * 10;
         }
     } //feed
 })(A11_canvas || (A11_canvas = {})); //namespace

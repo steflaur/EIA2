@@ -13,10 +13,9 @@ namespace A11_canvas {
 
     export class Bubble extends MovingObjects {
 
-        speed: number;
         radius: number;
-        c1: string;
-        c2: string;
+        color1: string;
+        color2: string;
 
         constructor() {
             super();
@@ -28,13 +27,13 @@ namespace A11_canvas {
         setPosition(): void {
             this.x = 370 + Math.random() * 60;
             this.y = Math.random() * 500;
-            this.speed = Math.random() * 3 + 1;
+            this.speed = 0.5 + Math.random() * 0.5;
         }
 
         setStyle(): void {
-            this.radius = Math.random() * 10;
-            this.c1 = "skyblue";
-            this.c2 = "whitesmoke";
+            this.radius = 0.5 + Math.random() * 8;
+            this.color1 = "skyblue";
+            this.color2 = "whitesmoke";
         }
 
         //declare methods
@@ -48,15 +47,13 @@ namespace A11_canvas {
 
 
         draw(): void {
-
             crc2.beginPath();
             crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-            crc2.strokeStyle = this.c2;
+            crc2.strokeStyle = this.color2;
             crc2.stroke();
-            crc2.fillStyle = this.c1;
+            crc2.fillStyle = this.color1;
             crc2.fill();
             crc2.closePath();
-
         }//close draw
 
     }//close class

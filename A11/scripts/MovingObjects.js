@@ -12,15 +12,14 @@ var A11_canvas;
 (function (A11_canvas) {
     class MovingObjects {
         constructor() {
-            // ohne Inhalt
         }
+        //move
         move() {
-            // ohne Inhalt
-        }
+        } //close move
+        //draw
         draw() {
-            // ohne Inhalt
-        }
+        } //close draw
     }
-    A11_canvas.MovingObjects = MovingObjects;
-})(A11_canvas || (A11_canvas = {}));
+    A11_canvas.MovingObjects = MovingObjects; //close class
+})(A11_canvas || (A11_canvas = {})); //close namespace
 //# sourceMappingURL=MovingObjects.js.map

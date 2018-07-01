@@ -32,18 +32,18 @@ namespace A11_canvas {
     }
 
     //function Wasser
-    export function drawWater(_c1: string, _c2: string, _x: number, _y: number, _r1: number, _r2: number): void {
+    export function drawWater(_color1: string, _color2: string, _x: number, _y: number, _r1: number, _r2: number): void {
         //Wasser
         var gradient = crc2.createRadialGradient(_x - 400, _y - 80, _r1, _x - 400, _y - 200, _r2);
-        gradient.addColorStop(0, _c1);
-        gradient.addColorStop(1, _c2);
+        gradient.addColorStop(0, _color1);
+        gradient.addColorStop(1, _color2);
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, _x, _y);
         crc2.strokeRect(0, 0, _x, _y);
     }
 
     //function Boden & Kies
-    export function drawBottom(_c1: string, _c2: string, _w: number, _x: number, _y: number): void {
+    export function drawBottom(_color1: string, _color2: string, _nK: number, _x: number, _y: number): void {
 
         //Boden
         crc2.beginPath();
@@ -55,33 +55,33 @@ namespace A11_canvas {
         crc2.lineTo(_x, _y + 200);
         crc2.lineTo(_x, _y);
         crc2.stroke();
-        crc2.fillStyle = _c1;
+        crc2.fillStyle = _color1;
         crc2.fill();
         crc2.closePath();
 
         //Kies
-        for (let i: number = 0; i < _w; i++) {
+        for (let i: number = 0; i < _nK; i++) {
             let x: number = Math.random() * (_x + 800);
             let y: number = (_y + 100) + Math.random() * (_y - 300);
-            drawStones(_c2, _c2, x, y, 1);
+            drawStones(_color2, _color2, x, y, 1);
         }//close
     }
 
     //function für Kies
-    export function drawStones(_cF: string, _cS: string, _x: number, _y: number, _r: number): void {
+    export function drawStones(_colorF: string, _colorS: string, _x: number, _y: number, _r: number): void {
 
         crc2.beginPath();
         crc2.arc(_x, _y, _r, 0, 2 * Math.PI);
-        crc2.strokeStyle = _cS;
+        crc2.strokeStyle = _colorS;
         crc2.stroke();
-        crc2.fillStyle = _cF;
+        crc2.fillStyle = _colorF;
         crc2.fill();
         crc2.closePath();
 
     }
-    
+
     //function plant
-    export function drawPlant(_c1: string, _c2: string, _c3: string, _x: number, _y: number): void {
+    export function drawPlant(_color1: string, _color2: string, _color3: string, _x: number, _y: number): void {
 
         //Pflanze mitte
         //Stiel
@@ -89,7 +89,7 @@ namespace A11_canvas {
         crc2.moveTo(_x, _y);
         crc2.quadraticCurveTo(_x - 5, _y - 40, _x - 10, _y - 57);
         crc2.lineWidth = 2;
-        crc2.strokeStyle = _c3;
+        crc2.strokeStyle = _color3;
         crc2.stroke();
         crc2.closePath();
         //Blatt
@@ -97,7 +97,7 @@ namespace A11_canvas {
         crc2.moveTo(_x - 10, _y - 55);
         crc2.quadraticCurveTo(_x - 75, _y - 200, _x - 5, _y - 310);
         crc2.quadraticCurveTo(_x + 45, _y - 130, _x - 10, _y - 55);
-        crc2.fillStyle = _c2;
+        crc2.fillStyle = _color2;
         crc2.fill();
         crc2.closePath();
 
@@ -107,7 +107,7 @@ namespace A11_canvas {
         crc2.moveTo(_x, _y);
         crc2.quadraticCurveTo(_x - 5, _y - 40, _x + 10, _y - 60);
         crc2.lineWidth = 2;
-        crc2.strokeStyle = _c3;
+        crc2.strokeStyle = _color3;
         crc2.stroke();
         crc2.closePath();
         //Blatt
@@ -115,7 +115,7 @@ namespace A11_canvas {
         crc2.moveTo(_x + 5, _y - 50);
         crc2.quadraticCurveTo(_x - 35, _y - 200, _x + 65, _y - 300);
         crc2.quadraticCurveTo(_x + 85, _y - 130, _x + 5, _y - 50);
-        crc2.fillStyle = _c1;
+        crc2.fillStyle = _color1;
         crc2.fill();
         crc2.closePath();
 
@@ -125,7 +125,7 @@ namespace A11_canvas {
         crc2.moveTo(_x, _y);
         crc2.quadraticCurveTo(_x - 5, _y - 30, _x - 15, _y - 42);
         crc2.lineWidth = 2;
-        crc2.strokeStyle = _c3;
+        crc2.strokeStyle = _color3;
         crc2.stroke();
         crc2.closePath();
         //Blatt
@@ -133,17 +133,17 @@ namespace A11_canvas {
         crc2.moveTo(_x - 15, _y - 40);
         crc2.quadraticCurveTo(_x - 125, _y - 140, _x - 70, _y - 280);
         crc2.quadraticCurveTo(_x + 5, _y - 160, _x - 15, _y - 40);
-        crc2.fillStyle = _c1;
+        crc2.fillStyle = _color1;
         crc2.fill();
         crc2.closePath();
 
     }
-    
+
     //function schatzkiste
-    export function drawBubbler(_c1: string, _c2: string, _x: number, _y: number): void {
+    export function drawBubbler(_color1: string, _color2: string, _x: number, _y: number): void {
         //Hinten
         crc2.strokeStyle = "black";
-        crc2.fillStyle = _c2;
+        crc2.fillStyle = _color2;
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x + 70, _y - 30);
@@ -163,7 +163,7 @@ namespace A11_canvas {
         crc2.fill();
 
         //Vorn
-        crc2.fillStyle = _c1;
+        crc2.fillStyle = _color1;
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x + 40, _y + 20);
@@ -183,7 +183,7 @@ namespace A11_canvas {
         crc2.fill();
 
         //Deckel
-        crc2.fillStyle = _c1;
+        crc2.fillStyle = _color1;
         crc2.beginPath();
         crc2.moveTo(_x + 100, _y - 50);
         crc2.quadraticCurveTo(_x + 80, _y - 60, _x + 30, _y - 40);
@@ -192,7 +192,7 @@ namespace A11_canvas {
         crc2.stroke();
         crc2.fill();
 
-        crc2.fillStyle = _c2;
+        crc2.fillStyle = _color2;
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x + 70, _y - 30);

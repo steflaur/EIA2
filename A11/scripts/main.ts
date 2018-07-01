@@ -17,12 +17,12 @@ namespace A11_canvas {
     let imgData: ImageData;
     console.log("CanvasRendering2d active");
 
-    //Arrays Fische + Bubbles
+    //Array der movingObjects
     let movingObjects: MovingObjects[] = [];
 
     //Anzahl Fische + Bubbles
-    let nF: number = 10;
-    let nB: number = 30;
+    let nFish: number = 10;
+    let nBubble: number = 50;
 
     //init
     function init(): void {
@@ -30,29 +30,26 @@ namespace A11_canvas {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
 
+        //EventListener 2feedTheFish
         canvas.addEventListener("click", feedTheFish);
 
+        //function staticObjects
         drawStaticBackground(canvas);
-
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
 
         //for-Schleife Blubbles
-        for (let i: number = 0; i < nB; i++) {
+        for (let i: number = 0; i < nBubble; i++) {
             let bubble: Bubble = new Bubble();
-            
             movingObjects.push(bubble);
-
             console.log("push Bubbles");
         }//close for
 
-        //for-Schleife Fisch
-        for (let i: number = 0; i < nF; i++) {
+        //for-Schleife Fische
+        for (let i: number = 0; i < nFish; i++) {
             let fish: Fish = new Fish();
-            
             movingObjects.push(fish);
-
             console.log("push fish");
         }//close for
 
@@ -97,17 +94,18 @@ namespace A11_canvas {
 
     //feed
     function feedTheFish(_event: MouseEvent): void {
-
-        let newPositionX: number = _event.clientX;
-        let newPositionY: number = _event.clientY;
-
+        console.log("#call HappyMealTime!!");
+        let xPosition: number = _event.clientX;
+        xPosition -= 310;
+        let yPosition: number = _event.clientY;
+        yPosition -= 70;
 
         for (let i: number = 0; i < 4; i++) {
-            let food: Food = new Food(newPositionX, newPositionY);
+            let food: Food = new Food(xPosition, yPosition);
             movingObjects.push(food);
-            newPositionX += Math.random() * 60;
-            newPositionX -= Math.random() * 60;
-            newPositionY += Math.random() * 30;
+            xPosition += Math.random() * 20;
+            xPosition -= Math.random() * 20;
+            yPosition += Math.random() * 10;
         }
     }//feed
 

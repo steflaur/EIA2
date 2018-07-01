@@ -11,22 +11,24 @@ nicht kopiert und auch nicht diktiert.
 
 namespace A11_canvas {
 
-
     export class MovingObjects {
         x: number;
         y: number;
+        speed: number;
 
         constructor() {
-            // ohne Inhalt
+
         }
 
+        //move
         move(): void {
-            // ohne Inhalt
-        }
 
+        }//close move
+
+        //draw
         draw(): void {
-            // ohne Inhalt
-        }
-    }
 
-}
+        }//close draw
+
+    }//close class
+}//close namespace
