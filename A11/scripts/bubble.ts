@@ -20,6 +20,7 @@ namespace A11_canvas {
         constructor() {
             super();
             this.setPosition();
+            this.setSpeed();
             this.setBorders();
             this.setStyle();
         }
