@@ -96,8 +96,10 @@ namespace A11_canvas {
     function feedTheFish(_event: MouseEvent): void {
         console.log("#call HappyMealTime!!");
         let xPosition: number = _event.clientX;
-        xPosition -= 310;
         let yPosition: number = _event.clientY;
+        
+        //ausgleich der veränderten werte durch cssnBefehle
+        xPosition -= 310;
         yPosition -= 70;
 
         for (let i: number = 0; i < 4; i++) {

@@ -69,8 +69,9 @@ var A11_canvas;
     function feedTheFish(_event) {
         console.log("#call HappyMealTime!!");
         let xPosition = _event.clientX;
-        xPosition -= 310;
         let yPosition = _event.clientY;
+        //ausgleich der veränderten werte durch cssnBefehle
+        xPosition -= 310;
         yPosition -= 70;
         for (let i = 0; i < 4; i++) {
             let food = new A11_canvas.Food(xPosition, yPosition);
