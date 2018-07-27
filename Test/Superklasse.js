@@ -13,7 +13,7 @@ var anger;
         fall() {
             this.y += this.ySpeed;
             if (this.y > (anger.crc2.canvas.height + 100)) {
-                this.ySpeed = 0;
+                this.y = 0;
             }
         }
         draw() {
