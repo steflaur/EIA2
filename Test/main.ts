@@ -14,12 +14,12 @@ namespace anger {
 
     }
 
-    function startGame(_event: Event): void {
+    function startGame(): void {
         //set time start
         document.getElementById('gamePage').style.display = "block";
         document.getElementById('startPage').style.display = "none";
 
-        document.getElementById('restartButt').addEventListener("click", init);
+        document.getElementById('restartButt').addEventListener("click", restart);
 
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
@@ -119,8 +119,10 @@ namespace anger {
     }
 
     function restart(): void {
-        //clear everything
-        //startGame();
+        crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        crc2.putImageData(imgData, 0, 0);
+        
+        startGame();
     }
 
 

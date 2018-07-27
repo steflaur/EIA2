@@ -9,11 +9,11 @@ var anger;
         document.getElementById('startPage').style.display = "block";
         document.getElementById('startButt').addEventListener("click", startGame);
     }
-    function startGame(_event) {
+    function startGame() {
         //set time start
         document.getElementById('gamePage').style.display = "block";
         document.getElementById('startPage').style.display = "none";
-        document.getElementById('restartButt').addEventListener("click", init);
+        document.getElementById('restartButt').addEventListener("click", restart);
         let canvas = document.getElementsByTagName("canvas")[0];
         anger.crc2 = canvas.getContext("2d");
         console.log(anger.crc2);
@@ -90,8 +90,9 @@ var anger;
         //punkteanzeige
     }
     function restart() {
-        //clear everything
-        //startGame();
+        anger.crc2.clearRect(0, 0, anger.crc2.canvas.width, anger.crc2.canvas.height);
+        anger.crc2.putImageData(imgData, 0, 0);
+        startGame();
     }
     //______________________________________________________
     function animate() {
