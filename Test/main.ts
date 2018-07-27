@@ -10,7 +10,7 @@ namespace anger {
         document.getElementById('gamePage').style.display = "none";
         document.getElementById('startPage').style.display = "block";
 
-        document.getElementById('startButt').addEventListener("click", restart);
+        document.getElementById('startButt').addEventListener("click", startGame);
 
     }
 
