@@ -15,7 +15,7 @@ canvas {
 
 /* media query */
 @media (orientation: portrait) {
-  #gamePage {
+  canvas {
     width: 100%;
     height: calc(100vw * 500 / 800);
 
@@ -26,7 +26,7 @@ canvas {
 }
 
 @media (orientation: landscape) {
-  #gamePage {
+  canvas {
     width: calc(100vh * 800 / 500);
     height: 100%;
 
