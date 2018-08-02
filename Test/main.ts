@@ -30,22 +30,22 @@ namespace anger {
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
         //collector zeichnen
-        
+
         for (let i: number = 0; i < n; i++) {
             let wurst: Wurst = new Wurst();
             food.push(wurst);
             let obst: Obst = new Obst();
             food.push(obst);
         }
-        
+
         //first fall
+
         
+
         //danach! generate rndm obj
-        
-        //if lives<1 oder time => game end
 
         animate();
-        
+
         //collector key und touch events
         //put image data
     }
@@ -55,8 +55,10 @@ namespace anger {
         //if a (a=true) if b (b true) else (nochmal)
         //a?b:c
         //definiere let richtwert : boolean als true
-        //clear
+        //clear img
     }
+
+
 
 
     function generateRandomObjects(): void {
@@ -103,42 +105,53 @@ namespace anger {
         //was ist fangen? => koordinaten
 
         //if boolean=true ++punkt
-        //else --lives
 
+        //else --lives
+        //if lives kleiner 1 => gameEnd(dead)
 
     }
 
-    function gameEnd(): void {
 
-        //alert game over
-        //punkteanzeige
-        //lustiges statement
+    function gameEnd(_reason: string): void {
 
-        //alert zeit over
-        //punkteanzeige
+        switch (_reason) {
+            case "dead":
+                //alert game over
+                //punkteanzeige
+                //lustiges statement
+                //evtl mongo formS
+                break;
+            case "time":
+                //alert zeit over
+                //punkteanzeige
+                //congrats
+                //evtl mongo form
+                break;
+        }
     }
 
     function restart(): void {
-        crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
-        crc2.putImageData(imgData, 0, 0);
-        
-        startGame();
+        window.location.reload(true);
     }
 
 
     //______________________________________________________
     function animate(): void {
+        
+        //get time "start"
+        //if time größer als richtwert= game end(timesUp)
+        
         window.setTimeout(animate, 10);
 
         crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.putImageData(imgData, 0, 0);
-        
+
         //catch object
 
         moveObjects();
         drawObjects();
-        
-        //delete object
+
+        //check location object
     }
 
     function moveObjects(): void {
@@ -152,9 +165,10 @@ namespace anger {
             food[i].draw();
         }
     }
-
-    function deleteObject(): void {
-        //if object verschwindet => object aus fallingObjects array löschen
+    
+    function locateObject(): void {
+        //check location for
+        //if object y<0 => object aus fallingObjects array löschen food.splice
     }
 
 }

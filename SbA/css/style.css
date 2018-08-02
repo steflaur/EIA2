@@ -1,0 +1,83 @@
+* {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+body {
+	cursor: pointer;
+	background-color: bisque;
+}
+
+#startPage, #startPage p, #startPage h1, #startPage h2 {
+	font-family: 'Cinzel Decorative', cursive;
+	padding: 0.5%;
+}
+
+#monkeyButt {
+	margin: 3% 0;
+	background-color: bisque;
+}
+
+#restartButt {
+	font-family: 'Cinzel Decorative', cursive;
+	font-weight: bold;
+	background-color: bisque;
+	padding: 1%;
+}
+
+#monkeyButt:link, #restartButt:link {
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+#monkeyButt:visited, #restartButt:visited {
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+#monkeyButt:hover, #restartButt:hover {
+	cursor: -webkit-grab;
+	cursor: grab;
+	color: sienna;
+}
+
+#monkeyButt:active, #restartButt:active {
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+}
+
+buttImg {
+	max-width: 64px;
+	max-heigth: 64px;
+}
+
+figcaption {
+	font-family: 'Cinzel Decorative', cursive;
+}
+
+canvas {
+	display: block;
+	margin: auto;
+}
+
+
+/* media query */
+@media ( orientation : portrait) {
+	canvas {
+		width: 100%;
+		height: calc(100vw * 600/ 800);
+		max-width: 800px;
+		max-height: 600px;
+	}
+}
+
+@media ( orientation : landscape) {
+	canvas {
+		width: calc(100vh * 800/ 600);
+		height: 100%;
+		max-width: 800px;
+		max-height: 600px;
+	}
+}

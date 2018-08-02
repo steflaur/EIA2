@@ -1,0 +1,55 @@
+<!-- 
+Abschlussaufgabe Monkey Business
+Name: Laura Vogt
+Matrikel: 256056
+Datum: 09Jul2018
+
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurdeF
+nicht kopiert und auch nicht diktiert. 
+-->
+
+<!DOCTYPE html>
+<html lang="de">
+
+	<head>
+		<title>Monkey Business</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="shortcut icon" href="img/favicon.png">
+		<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
+		<link href="css/style.css" type="text/css" rel="stylesheet">
+		
+		<script src="scripts/background.js" type="text/javascript" charset="utf-8"></script>
+		<script src="scripts/counterO.js" type="text/javascript" charset="utf-8"></script>
+		<script src="scripts/movingO.js" type="text/javascript" charset="utf-8"></script>
+		<script src="scripts/collectorO.js" type="text/javascript" charset="utf-8"></script>
+		<script src="scripts/fallingO.js" type="text/javascript" charset="utf-8"></script>
+		<script src="scripts/main.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	
+	<body>
+		<div id="startPage">
+			<h1>Monkey Business</h1>
+			<p>Willkommen im Urwald</p>
+			<p>Während alle Studenten in ihre verdienten Semsterferien gehen,
+				muss sich der kleine Affe Coco auf die anstrengende Suche nach
+				Bananen machen. Hilf ihm doch sich satt zu fressen, damit er sich bei
+				der Hitze nicht so anstrengen muss. Aber pass gut auf, dass ihm nicht
+				so viele Kokusnüsse auf den Kopf fallen.</p>
+	
+			<button id="monkeyButt">
+				<figure>
+					<img id="startButtImg" src="img/monkeyDefault.png" alt="start here">
+					<figcaption>Start</figcaption>
+				</figure>
+			</button>
+		</div>
+	
+		<div id="gamePage">
+			<canvas width="800" height="600"> </canvas>
+			<button id="restartButt">Play again</button>
+		</div>
+	</body>
+</html>

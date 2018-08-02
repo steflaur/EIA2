@@ -28,7 +28,6 @@ var anger;
         }
         //first fall
         //danach! generate rndm obj
-        //if lives<1 oder time => game end
         animate();
         //collector key und touch events
         //put image data
@@ -38,7 +37,7 @@ var anger;
         //if a (a=true) if b (b true) else (nochmal)
         //a?b:c
         //definiere let richtwert : boolean als true
-        //clear
+        //clear img
     }
     function generateRandomObjects() {
         let randomObject = Math.floor(Math.random() * 8);
@@ -81,28 +80,38 @@ var anger;
         //was ist fangen? => koordinaten
         //if boolean=true ++punkt
         //else --lives
+        //if lives kleiner 1 => gameEnd(dead)
     }
-    function gameEnd() {
-        //alert game over
-        //punkteanzeige
-        //lustiges statement
-        //alert zeit over
-        //punkteanzeige
+    function gameEnd(_reason) {
+        switch (_reason) {
+            case "dead":
+                //alert game over
+                //punkteanzeige
+                //lustiges statement
+                //evtl mongo formS
+                break;
+            case "time":
+                //alert zeit over
+                //punkteanzeige
+                //congrats
+                //evtl mongo form
+                break;
+        }
     }
     function restart() {
-        anger.crc2.clearRect(0, 0, anger.crc2.canvas.width, anger.crc2.canvas.height);
-        anger.crc2.putImageData(imgData, 0, 0);
-        startGame();
+        window.location.reload(true);
     }
     //______________________________________________________
     function animate() {
+        //get time "start"
+        //if time größer als richtwert= game end(timesUp)
         window.setTimeout(animate, 10);
         anger.crc2.clearRect(0, 0, anger.crc2.canvas.width, anger.crc2.canvas.height);
         anger.crc2.putImageData(imgData, 0, 0);
         //catch object
         moveObjects();
         drawObjects();
-        //delete object
+        //check location object
     }
     function moveObjects() {
         for (let i = 0; i < food.length; i++) {
@@ -114,8 +123,9 @@ var anger;
             food[i].draw();
         }
     }
-    function deleteObject() {
-        //if object verschwindet => object aus fallingObjects array löschen
+    function locateObject() {
+        //check location for
+        //if object y<0 => object aus fallingObjects array löschen food.splice
     }
 })(anger || (anger = {}));
 //# sourceMappingURL=main.js.map
